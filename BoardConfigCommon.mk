@@ -177,6 +177,7 @@ TARGET_WLAN_POWER_STAT := "/sys/kernel/wlan/power_stats"
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
 
 # Recovery
+BOOTLOADER_MESSAGE_OFFSET := 128
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
