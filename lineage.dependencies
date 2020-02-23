@@ -1,0 +1,17 @@
+[
+  {
+    "repository": "LineageOS/kernel_lge_sm8150",
+    "target_path": "kernel/lge/sm8150",
+    "branch": "lineage-17.1"
+  },
+  {
+    "remote": "github",
+    "repository": "SGCMarkus/proprietary_vendor_lge",
+    "target_path": "vendor/lge",
+    "branch": "lineage-17.1"
+  },
+  {
+    "repository": "android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings",
+  }
+]
