@@ -163,3 +163,11 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1
+
+# FM packages
+PRODUCT_PACKAGES += \
+	libqcomfm_jni \
+	android.hardware.broadcastradio@1.0-impl \
+	FM2 \
+	qcom.fmradio \
+	qcom.fmradio.xml
