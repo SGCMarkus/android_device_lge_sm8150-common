@@ -124,6 +124,16 @@ vendor/lib64/vendor.qti.hardware.btconfigstore@1.0.so
 lib64/libaptX_encoder.so:product/lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so:product/lib64/libaptXHD_encoder.so
 
+# Bootproperty
+product/lib64/vendor.lge.hardware.bootproperty@1.0.so
+product/lib/vendor.lge.hardware.bootproperty@1.0.so
+vendor/bin/hw/vendor.lge.hardware.bootproperty@1.0-service
+vendor/etc/init/vendor.lge.hardware.bootproperty@1.0-service.rc
+vendor/lib64/hw/vendor.lge.hardware.bootproperty@1.0-impl.so
+vendor/lib64/vendor.lge.hardware.bootproperty@1.0.so
+vendor/lib/hw/vendor.lge.hardware.bootproperty@1.0-impl.so
+vendor/lib/vendor.lge.hardware.bootproperty@1.0.so
+
 # CDSP
 vendor/bin/cdsprpcd
 vendor/lib/libcdsp_default_listener.so
@@ -687,6 +697,28 @@ vendor/bin/pm-proxy
 vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
+
+# Platform
+product/lib64/vendor.lge.hardware.platform@1.0.so
+product/lib64/vendor.lge.hardware.platform@1.1.so
+product/lib/vendor.lge.hardware.platform@1.0.so
+product/lib/vendor.lge.hardware.platform@1.1.so
+vendor/bin/hw/vendor.lge.hardware.platform@1.1-service
+vendor/etc/init/vendor.lge.hardware.platform@1.1-service.rc
+vendor/lib64/vendor.lge.hardware.platform@1.0.so
+vendor/lib64/vendor.lge.hardware.platform@1.1.so
+
+# Property
+product/lib64/vendor.lge.hardware.property@1.0.so
+product/lib64/vendor.lge.hardware.property@2.0.so
+product/lib/vendor.lge.hardware.property@1.0.so
+product/lib/vendor.lge.hardware.property@2.0.so
+vendor/bin/hw/vendor.lge.hardware.property@2.0-service
+vendor/etc/init/vendor.lge.hardware.property@2.0-service.rc
+vendor/lib64/hw/vendor.lge.hardware.property@2.0-impl.so
+vendor/lib64/vendor.lge.hardware.property@2.0.so
+vendor/lib/hw/vendor.lge.hardware.property@2.0-impl.so
+vendor/lib/vendor.lge.hardware.property@2.0.so
 
 # Qualcomm Display Utils
 product/lib/vendor.qti.hardware.qdutils_disp@1.0.so
