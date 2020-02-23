@@ -128,4 +128,7 @@ PRODUCT_PACKAGES += \
     Snap \
     vendor.qti.hardware.camera.device@1.0.vendor
 
-
+# CNE
+PRODUCT_PACKAGES += \
+    cneapiclient \
+    com.quicinc.cne
