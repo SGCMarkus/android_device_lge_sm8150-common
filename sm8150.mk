@@ -22,6 +22,10 @@ COMMON_PATH := device/lge/sm8150-common
 # define hardware platform
 PRODUCT_PLATFORM := msmnile
 
+# Soong
+PRODUCT_SOONG_NAMESPACES += \
+    $(COMMON_PATH)
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(COMMON_PATH)/overlay \
@@ -62,3 +66,13 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     otapreopt_script
 
+# Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl:64 \
+    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.0-impl.recovery \
+    bootctrl.msmnile \
+    bootctrl.msmnile.recovery
+
+PRODUCT_PACKAGES_DEBUG += \
+    bootctl
