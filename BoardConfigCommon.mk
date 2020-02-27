@@ -104,6 +104,10 @@ GNSS_HIDL_VERSION := 1.1
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 
+# HIDL
+DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
+
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_lge_msmnile
 TARGET_RECOVERY_DEVICE_MODULES := libinit_lge_msmnile
