@@ -233,3 +233,16 @@ PRODUCT_COPY_FILES += \
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
+
+# NFC
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0 \
+    android.hardware.nfc@1.1 \
+    android.hardware.nfc@1.2 \
+    android.hardware.secure_element@1.0 \
+    android.hardware.secure_element@1.1 \
+    com.android.nfc_extras \
+    NfcNci \
+    SecureElement \
+    Tag \
+    vendor.nxp.nxpnfc@1.0
