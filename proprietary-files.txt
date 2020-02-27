@@ -1136,7 +1136,6 @@ vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
 
 # Wifi
 vendor/bin/cnss-daemon
-vendor/bin/hw/android.hardware.wifi@1.0-service
 vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.1-service
 vendor/bin/wifilearner
 vendor/etc/init/android.hardware.wifi@1.0-service.rc
