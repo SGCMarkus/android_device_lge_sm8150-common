@@ -320,7 +320,7 @@ vendor/lib64/vendor.display.color@1.3.so
 vendor/lib64/vendor.display.postproc@1.0.so
 
 # DPM
-lib/dpm
+bin/dpm
 product/etc/dpm/dpm.conf
 product/etc/permissions/com.qti.dpmframework.xml
 product/etc/permissions/dpmapi.xml
@@ -1106,9 +1106,10 @@ vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
 vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
 
 # Soter
-product/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
 vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
+vendor/lib/hw/vendor.qti.hardware.soter@1.0-impl.so
+vendor/lib/vendor.qti.hardware.soter@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
@@ -1140,7 +1141,6 @@ vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.1-service
 vendor/bin/wifilearner
 vendor/etc/init/android.hardware.wifi@1.0-service.rc
 vendor/etc/init/vendor.lge.hardware.wifi.hal@1.1-service.rc
-vendor/lib/vendor.qti.hardware.wifi.wifilearner@1.0.so
 vendor/lib64/vendor.lge.hardware.wifi.hal@1.0.so
 vendor/lib64/vendor.lge.hardware.wifi.hal@1.1.so
 vendor/lib64/vendor.lge.hardware.wifi.hostapd@2.0.so
