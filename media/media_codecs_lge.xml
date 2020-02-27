@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Included>
+	<Encoders>
+		<MediaCodec name="OMX.lge.flac.encoder" type="audio/x-lg-flac"/>
+	</Encoders>
+	<Decoders>
+		<MediaCodec name="OMX.lge.alac.decoder" type="audio/x-lg-alac"/>
+		<MediaCodec name="OMX.lge.adpcm.decoder" type="audio/adpcm"/>
+		<MediaCodec name="OMX.lge.g726.decoder" type="audio/g726"/>
+		<MediaCodec name="OMX.lge.aac.decoder" type="audio/mp4a-latm" rank="1"/>
+		<MediaCodec name="OMX.lge.mp3.decoder" type="audio/mpeg" rank="1"/>
+		<MediaCodec name="OMX.lge.ac3.decoder" type="audio/lg-ac3"/>
+		<MediaCodec name="OMX.lge.wmsVoice.decoder" type="audio/lg-wma-voice"/>
+		<MediaCodec name="OMX.lge.wms.decoder" type="audio/x-lg-ms-wma"/>
+		<MediaCodec name="OMX.DTS.audio_decoder.dts" type="audio/dts"/>
+		<MediaCodec name="OMX.lge.musicam.decoder" type="audio/MUSICAM"/>
+		<MediaCodec name="OMX.lge.bsac.decoder" type="audio/bsac"/>
+	</Decoders>
+</Included>
