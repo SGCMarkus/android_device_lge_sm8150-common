@@ -175,7 +175,6 @@ include device/qcom/sepolicy/sepolicy.mk
 
 # Treble
 BOARD_VNDK_VERSION := current
-PRODUCT_EXTRA_VNDK_VERSIONS := 28
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Verified Boot
