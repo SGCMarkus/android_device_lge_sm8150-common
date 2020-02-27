@@ -340,3 +340,10 @@ PRODUCT_PACKAGES += \
     wifi-mac-generator \
     wpa_supplicant \
     wpa_supplicant.conf
+
+# WiFi Display
+PRODUCT_PACKAGES += \
+    libnl
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon
