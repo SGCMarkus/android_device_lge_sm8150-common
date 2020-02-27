@@ -1,0 +1,103 @@
+# Copyright (c) 2009-2012, Code Aurora Forum. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of Code Aurora nor
+#       the names of its contributors may be used to endorse or promote
+#       products derived from this software without specific prior written
+#       permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NON-INFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+service vendor.wififtmd /vendor/bin/wififtmd
+    user wifi
+    group system wifi radio
+    disabled
+    oneshot
+
+on property:vendor.lge.wifi_ftm.wififtmd_start=1
+    start vendor.wififtmd
+
+on property:vendor.lge.wifi_ftm.wififtmd_start=0
+    stop vendor.wififtmd
+
+on property:vendor.lge.wifi.driver.status=2
+    write /sys/kernel/boot_wlan/boot_wlan 1
+
+on property:vendor.lge.wifi.driver.status=1
+    setprop wlan.driver.status ok
+
+on property:vendor.lge.wifi.driver.status=0
+    setprop wlan.driver.status unloaded
+
+# LGE Wi-Fi wlan_ril daemon.
+service vendor.wlan_rild /vendor/bin/hw/wlan_ril
+    class main
+    user wifi
+    group wifi radio system net_raw net_admin
+    disabled
+    oneshot
+
+on property:vendor.lge.wlan_ril_start=enable
+    start vendor.wlan_rild
+
+on property:vendor.lge.wlan_ril_start=disable
+    stop vendor.wlan_rild
+
+on boot
+mkdir /dev/socket/wlan_ril 0770 wifi wifi
+chmod 2770 /dev/socket/wlan_ril
+
+#[START][LGE_WIFI][QCT]: To run ptt_socket_app for FTM
+service vendor.ftm_ptt /vendor/bin/ftm_ptt -d
+    class late_start
+    user root
+    group radio
+    disabled
+    oneshot
+
+on property:vendor.lge.hw.ftm_ptt_start=1
+    start vendor.ftm_ptt
+
+on property:vendor.lge.hw.ftm_ptt_start=0
+    stop vendor.ftm_ptt
+
+on property:vendor.lge.wifi.ssr=0
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level related
+
+on property:vendor.lge.wifi.ssr=1
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level system
+#[END][LGE_WIFI][QCT]: To run ptt_socket_app for FTM
+
+# WLAN FW/Driver Logs
+on post-fs-data
+    mkdir /data/vendor/wlan_logs 0770 system system
+
+# Disable unused service in joan project
+#service ptt_socket_app /system/bin/ptt_socket_app
+#    class main
+#    user system
+#    group system
+#    oneshot
+#
+#service wcnss-service /system/bin/wcnss_service
+#    class main
+#    user system
+#    group system wifi radio
+#    oneshot

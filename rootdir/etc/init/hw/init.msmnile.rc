@@ -1,0 +1,144 @@
+# This file is imported by init.{ro.hardware}.rc
+
+# LGE logger service rc
+import /init.lge.log.rc
+
+# import zram configurations
+import /init.lge.svelte.rc
+
+on init
+
+on fs
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+    wait /dev/block/bootdevice
+    mount_all /vendor/etc/fstab.${ro.hardware}
+
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    restorecon_recursive /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/data 0700 system system
+
+    chown system system /mnt/vendor/absolute
+    chmod 0750 /mnt/vendor/absolute
+    restorecon_recursive /mnt/vendor/absolute
+
+    chown system system /mnt/vendor/persist-lg
+    chmod 0771 /mnt/vendor/persist-lg
+    restorecon_recursive /mnt/vendor/persist-lg
+
+    chown system system /mnt/vendor/sns
+    chmod 0755 /mnt/vendor/sns
+    restorecon_recursive /mnt/vendor/sns
+
+    # We use reservedsize option in fstab instead of tune2fs. No more use tune2fs
+    # Executing tune2fs to reserve some region in /data.(40MB)
+    # exec /system/bin/tune2fs -u system -r 10240 /dev/block/bootdevice/by-name/userdata
+
+on post-fs
+    chown system system /vendor/mpt
+    chmod 0775 /vendor/mpt
+
+    chown system system /vendor/persist-lg
+    chmod 0771 /vendor/persist-lg
+
+    chown system system /vendor/sns
+    chmod 0755 /vendor/sns
+
+    chown system system /vendor/fota
+    chmod 0755 /vendor/fota
+
+    chown root system /sys/module/lge_handle_panic/parameters/gen_adsp_panic
+    chown root system /sys/module/lge_handle_panic/parameters/gen_bug
+    chown root system /sys/module/lge_handle_panic/parameters/gen_cdsp_panic
+    chown root system /sys/module/lge_handle_panic/parameters/gen_modem_panic
+    chown root system /sys/module/lge_handle_panic/parameters/gen_esoc0_panic
+    chown root system /sys/module/lge_handle_panic/parameters/gen_panic
+    chown root system /sys/module/lge_handle_panic/parameters/gen_slpi_panic
+    chown root system /sys/module/lge_handle_panic/parameters/gen_venus_panic
+    chown root system /sys/module/lge_handle_panic/parameters/gen_wdt_bark
+    chown root system /sys/module/lge_handle_panic/parameters/gen_wdt_bite
+
+on property:vold.decrypt=trigger_load_persist_props && property:ro.boot.vendor.lge.forced_log=enable
+    setprop ro.vendor.lge.forced_log enable
+
+on property:ro.vendor.lge.forced_log=enable
+    setprop persist.vendor.lge.service.crash.enable 1
+    setprop persist.vendor.lge.service.kernel.enable 5
+    setprop persist.vendor.lge.service.main.enable 5
+    setprop persist.vendor.lge.service.system.enable 5
+    setprop persist.vendor.lge.service.radio.enable 5
+    setprop persist.vendor.lge.service.events.enable 5
+
+# forced_usb_path_change
+service forced_usb_path_change /vendor/bin/init.lge.forced_usb_path_change.sh
+    disabled
+    oneshot
+
+on property:vold.decrypt=trigger_load_persist_props && property:ro.boot.vendor.lge.forced_usb_path_change=enable
+    start forced_usb_path_change
+
+# enable & disable crash handler, rtb & trace event through property
+on property:persist.vendor.lge.service.crash.enable=*
+    restart service-crash
+
+service service-crash /vendor/bin/init.sm8150.crash.sh
+    disabled
+    oneshot
+
+on property:persist.vendor.lge.service.crash.enable=1
+    start console
+    # rtb filter
+    write /sys/module/msm_rtb/parameters/filter 0x237
+
+    # ftrace
+    write /sys/kernel/debug/tracing/tracing_on 1
+
+    #enble FTRACE for softirq events
+    write /sys/kernel/debug/tracing/events/irq/enable 1
+    write /sys/kernel/debug/tracing/events/irq/filter 1
+    write /sys/kernel/debug/tracing/events/irq/softirq_entry/enable 1
+    write /sys/kernel/debug/tracing/events/irq/softirq_exit/enable 1
+    write /sys/kernel/debug/tracing/events/irq/softirq_raise/enable 1
+    write /sys/kernel/debug/tracing/events/irq/irq_handler_entry/enable 1
+
+    #enble FTRACE for Workqueue events
+    write /sys/kernel/debug/tracing/events/workqueue/enable 1
+    write /sys/kernel/debug/tracing/events/workqueue/filter 1
+    write /sys/kernel/debug/tracing/events/workqueue/workqueue_activate_work/enable 1
+    write /sys/kernel/debug/tracing/events/workqueue/workqueue_execute_end/enable 1
+    write /sys/kernel/debug/tracing/events/workqueue/workqueue_execute_start/enable 1
+    write /sys/kernel/debug/tracing/events/workqueue/workqueue_queue_work/enable 1
+
+    # schedular
+    write /sys/kernel/debug/tracing/events/sched/sched_cpu_hotplug/enable 1
+    write /sys/kernel/debug/tracing/events/sched/sched_cpu_load/enable 1
+    write /sys/kernel/debug/tracing/events/sched/sched_enq_deq_task/enable 1
+    write /sys/kernel/debug/tracing/events/sched/sched_load_balance/enable 1
+    write /sys/kernel/debug/tracing/events/sched/sched_migrate_task/enable 1
+    write /sys/kernel/debug/tracing/events/sched/sched_switch/enable 1
+    write /sys/kernel/debug/tracing/events/sched/sched_task_load/enable 1
+    write /sys/kernel/debug/tracing/events/sched/sched_wakeup/enable 1
+    write /sys/kernel/debug/tracing/events/sched/sched_wakeup_new/enable 1
+
+    # power
+    write /sys/kernel/debug/tracing/events/msm_low_power/enable 1
+    write /sys/kernel/debug/tracing/events/power/cpu_frequency/enable 1
+
+    # scm call
+    write /sys/kernel/debug/tracing/events/scm/scm_call_start/enable 1
+    write /sys/kernel/debug/tracing/events/scm/scm_call_end/enable 1
+
+    # size
+    write /sys/kernel/debug/tracing/buffer_size_kb 16384
+
+on property:persist.vendor.lge.service.crash.enable=0
+    # rtb filter
+    write /sys/module/msm_rtb/parameters/filter 0
+
+    # ftrace
+    write /sys/kernel/debug/tracing/tracing_on 0
+
+    # size
+    write /sys/kernel/debug/tracing/buffer_size_kb 1

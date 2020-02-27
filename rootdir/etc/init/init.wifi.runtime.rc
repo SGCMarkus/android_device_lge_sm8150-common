@@ -1,0 +1,13 @@
+#Wi-Fi Runtime
+#18.12.05. For MTK(early nvload), Change trigger point from late-fs to post-fs-data
+on post-fs-data
+    start wlan_runtime
+
+on property:ro.boot.vendor.lge.sku_carrier=*
+     exec u:r:wlan_runtime:s0 system system wifi -- /vendor/bin/wifi_runtime_conf.sh --sku
+
+service wlan_runtime /vendor/bin/wifi_runtime_conf.sh --post
+     user system
+     group system wifi
+     disabled
+     oneshot

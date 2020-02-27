@@ -1,0 +1,133 @@
+# Copyright (c) 2011, Code Aurora Forum. All rights reserved.
+# Copyright (c) 2011-2012, LG Electronics Inc. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of Code Aurora nor
+#       the names of its contributors may be used to endorse or promote
+#       products derived from this software without specific prior written
+#       permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NON-INFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+on boot
+
+# Begin Display General Features
+	chown system system /sys/class/panel/drs/freeze_state_hal
+	chmod 664 /sys/class/panel/drs/freeze_state_hal
+# End Display General Features
+
+# Begin Display Brigntness Features
+	chown system system /sys/class/backlight/panel0-backlight/brightness
+	chmod 664 /sys/class/backlight/panel0-backlight/brightness
+	chown system system /sys/class/backlight/panel0-backlight/max_brightness
+	chmod 664 /sys/class/backlight/panel0-backlight/max_brightness
+	chown system system /sys/class/backlight/panel0-backlight-ex/brightness
+	chmod 664 /sys/class/backlight/panel0-backlight-ex/brightness
+	chown system system /sys/class/backlight/panel0-backlight-cover/brightness
+	chmod 664 /sys/class/backlight/panel0-backlight-cover/brightness
+	chown system system /sys/class/backlight/panel0-backlight-ex/max_brightness
+	chmod 664 /sys/class/backlight/panel0-backlight-ex/max_brightness
+	chown system system /sys/class/panel/brightness/hl_mode
+	chmod 664 /sys/class/panel/brightness/hl_mode
+	chown system system /sys/class/panel/brightness/br_offset
+	chmod 664 /sys/class/panel/brightness/br_offset
+	chown system system /sys/class/panel/brightness/irc_brighter
+	chmod 664 /sys/class/panel/brightness/irc_brighter
+	chown system system /sys/class/panel/brightness/irc_support
+	chmod 444 /sys/class/panel/brightness/irc_support
+	chown system system /sys/class/panel/brightness/brightness_table
+	chmod 664 /sys/class/panel/brightness/brightness_table
+	chown system system /sys/class/panel/brightness/fp_lhbm
+	chmod 664 /sys/class/panel/brightness/fp_lhbm
+	chown system system /sys/class/panel/brightness/tc_perf
+	chmod 664 /sys/class/panel/brightness/tc_perf
+# End Display Brigntness Features
+
+# Begin Display Aod Features
+	chown system system /sys/class/panel/aod/area
+	chmod 664 /sys/class/panel/aod/area
+	chown system system /sys/class/panel/aod/power_mode
+	chmod 664 /sys/class/panel/aod/power_mode
+# End Display Aod Features
+
+# Begin Img Tune Features
+	chown system system /sys/class/panel/img_tune/rgb_tune
+	chmod 664 /sys/class/panel/img_tune/rgb_tune
+	chown system system /sys/class/panel/img_tune/screen_tune
+	chmod 664 /sys/class/panel/img_tune/screen_tune
+	chown system system /sys/class/panel/img_tune/screen_mode
+	chmod 664 /sys/class/panel/img_tune/screen_mode
+	chown system system /sys/class/panel_cover/img_tune/rgb_tune
+	chmod 664 /sys/class/panel_cover/img_tune/rgb_tune
+	chown system system /sys/class/panel_cover/img_tune/screen_tune
+	chmod 664 /sys/class/panel_cover/img_tune/screen_tune
+	chown system system /sys/class/panel_cover/img_tune/screen_mode
+	chmod 664 /sys/class/panel_cover/img_tune/screen_mode
+	chown system system /sys/class/panel/img_tune/comfort_view
+	chmod 664 /sys/class/panel/img_tune/comfort_view
+	chown system system /sys/class/panel/img_tune/video_enhancement
+	chmod 664 /sys/class/panel/img_tune/video_enhancement
+	chown system system /sys/class/panel/img_tune/vr_low_persist
+	chmod 664 /sys/class/panel/img_tune/vr_low_persist
+	chown system system /sys/class/panel/img_tune/hdr_mode
+	chmod 664 /sys/class/panel/img_tune/hdr_mode
+	chown system system /sys/class/panel/img_tune/sharpness
+	chmod 664 /sys/class/panel/img_tune/sharpness
+	chown system system /sys/class/panel/img_tune/true_view
+	chmod 664 /sys/class/panel/img_tune/true_view
+	chown system system /sys/class/panel/img_tune/damping_mode
+	chmod 664 /sys/class/panel/img_tune/damping_mode
+# End Img Tune Features
+
+# Begin Accessory Features
+	chown system system /sys/class/smartcover/smartcover/state
+	chmod 664 /sys/class/smartcover/smartcover/state
+	chown system system /sys/class/switch/smartcover/state
+	chmod 664 /sys/class/switch/smartcover/state
+	chown system system /sys/class/stylus/pen_state/state
+	chmod 664 /sys/class/stylus/pen_state/state
+	chown system system /sys/class/switch/pen_state/state
+	chmod 664 /sys/class/switch/pen_state/state
+	chown system system /sys/class/switch/kickstand/state
+	chmod 664 /sys/class/switch/kickstand/state
+	chown system system /sys/class/switch/folderstatus/state
+	chmod 664 /sys/class/switch/folderstatus/state
+	chown system system /sys/class/smartcover/nfccover/state
+	chmod 664 /sys/class/smartcover/nfccover/state
+	chown system system /sys/class/switch/nfccover/state
+	chmod 664 /sys/class/switch/nfccover/state
+	chown system system /sys/class/smartcover/coverdisplay/state
+	chmod 664 /sys/class/smartcover/coverdisplay/state
+	chown system system /sys/class/smartcover/lt_fail/state
+	chmod 664 /sys/class/smartcover/lt_fail/state
+	chown system system /sys/class/panel_cover/cover_ctrl/cover_button
+	chmod 664 /sys/class/panel_cover/cover_ctrl/cover_button
+	chown system system /sys/class/panel_cover/cover_ctrl/cover_led
+	chmod 664 /sys/class/panel_cover/cover_ctrl/cover_led
+	chown system system /sys/class/extcon/extcon5/state
+	chmod 664 /sys/class/extcon/extcon5/state
+	chown system system /sys/devices/platform/soc/soc:gpio_keys/cover_fw_update
+	chmod 664 /sys/devices/platform/soc/soc:gpio_keys/cover_fw_update
+# End Accessory Features
+
+# Begin Cover Features
+	chown system system /sys/devices/platform/soc/ae90000.qcom,dp_display/extcon/extcon5/state
+	chmod 664 /sys/devices/platform/soc/ae90000.qcom,dp_display/extcon/extcon5/state
+# End Cover Features

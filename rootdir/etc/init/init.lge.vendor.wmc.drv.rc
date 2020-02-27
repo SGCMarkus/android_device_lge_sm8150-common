@@ -1,0 +1,12 @@
+on boot
+    chown system system  /sys/class/lge_mme_bus/mme_bus_ctrl/boost
+    chmod 664  /sys/class/lge_mme_bus/mme_bus_ctrl/boost
+    chown system system  /sys/class/lge_mme_bus/mme_bus_ctrl/boost_long_term
+    chmod 664  /sys/class/lge_mme_bus/mme_bus_ctrl/boost_long_term
+    chown system system  /sys/class/lge_mme/mme_ctrl/mme_command
+    chmod 664  /sys/class/lge_mme/mme_ctrl/mme_command
+
+on post-fs-data
+    restorecon /sys/class/lge_mme_bus/mme_bus_ctrl/boost
+    restorecon /sys/class/lge_mme_bus/mme_bus_ctrl/boost_long_term
+    restorecon /sys/class/lge_mme/mme_ctrl/mme_command
