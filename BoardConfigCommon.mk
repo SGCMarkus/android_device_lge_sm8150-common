@@ -139,6 +139,10 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_VENDOR := vendor
 PRODUCT_VENDOR_MOVE_ENABLED := true
 
+# Power
+TARGET_RPM_MASTER_STAT := "/sys/power/rpmh_stats/master_stats"
+TARGET_WLAN_POWER_STAT := "/sys/kernel/wlan/power_stats"
+
 # Recovery
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
