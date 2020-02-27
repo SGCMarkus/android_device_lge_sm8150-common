@@ -160,6 +160,9 @@ TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD := true
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-01-01
 
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+
 # Treble
 BOARD_VNDK_VERSION := current
 PRODUCT_EXTRA_VNDK_VERSIONS := 28
