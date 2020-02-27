@@ -206,3 +206,8 @@ PRODUCT_COPY_FILES += \
 # IRQ
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+
+# IPv6
+PRODUCT_PACKAGES += \
+    ethertypes \
+    libebtc
