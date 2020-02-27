@@ -292,3 +292,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstdc++.vendor
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.2-service.lge_msmnile
