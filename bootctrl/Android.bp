@@ -13,9 +13,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+soong_namespace {
+    imports: ["hardware/qcom/bootctrl"],
+}
 
 cc_library {
     name: "bootctrl.msmnile",
+    proprietary: true,
+    recovery_available: true,
     defaults: ["bootctrl_hal_defaults"],
     static_libs: ["libgptutils.lge_msmnile"],
 }
