@@ -70,6 +70,9 @@ USE_CAMERA_STUB := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+# CNE and DPM
+BOARD_USES_QCNE := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.memcg=1
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
