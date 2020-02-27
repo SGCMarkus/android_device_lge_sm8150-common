@@ -67,6 +67,9 @@ USE_XML_AUDIO_POLICY_CONF := 1
 TARGET_USES_QTI_CAMERA_DEVICE := true
 USE_CAMERA_STUB := true
 
+# Charger
+BOARD_CHARGER_ENABLE_SUSPEND := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.memcg=1
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
