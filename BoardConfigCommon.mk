@@ -89,6 +89,9 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.memcg=1
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
