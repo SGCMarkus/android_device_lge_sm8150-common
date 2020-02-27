@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+BUILD_BROKEN_DUP_RULES := true
+
 COMMON_PATH := device/lge/sm8150-common
 
 # Platform
