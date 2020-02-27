@@ -98,6 +98,12 @@ GNSS_HIDL_VERSION := 1.1
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 
+# Keystore
+TARGET_PROVIDES_KEYMASTER := true
+
+# Media
+TARGET_PROVIDES_LIBPLATFORMCONFIG := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.memcg=1
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
