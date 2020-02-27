@@ -211,3 +211,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.lge_msmnile
