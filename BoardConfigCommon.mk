@@ -48,6 +48,9 @@ TARGET_BOARD_PLATFORM := msmnile
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
 TARGET_USES_QCOM_BSP := true
 
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.memcg=1
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
