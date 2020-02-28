@@ -332,7 +332,8 @@ PRODUCT_COPY_FILES += \
 # Permissions (Product)
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/permissions/product_privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml \
-    $(COMMON_PATH)/permissions/product_privapp-permissions-ims.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-ims.xml
+    $(COMMON_PATH)/permissions/product_privapp-permissions-ims.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-ims.xml \
+    $(COMMON_PATH)/permissions/product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml
 
 # Power
 PRODUCT_PACKAGES += \
