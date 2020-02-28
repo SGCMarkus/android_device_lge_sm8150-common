@@ -24,7 +24,7 @@ PRODUCT_PLATFORM := msmnile
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(COMMON_PATH)
+    $(COMMON_PATH)/bootctrl
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
