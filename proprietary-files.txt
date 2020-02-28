@@ -1143,7 +1143,7 @@ vendor/bin/hw/vendor.lge.hardware.soi@1.0-service
 vendor/etc/init/vendor.lge.hardware.soi@1.0-service.rc
 vendor/lib64/hw/vendor.lge.hardware.soi@1.0-impl.so
 vendor/lib64/liblgesoi-impl.so
-vendor(lib64/libqmi_wms_client_helper.so
+vendor/lib64/libqmi_wms_client_helper.so
 vendor/lib64/vendor.lge.hardware.soi@1.0.so
 vendor/lib/hw/vendor.lge.hardware.soi@1.0-impl.so
 vendor/lib/liblgesoi-impl.so
@@ -1189,12 +1189,14 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
 
 # Wifi
+vendor/bin/hw/wlan_ril
 vendor/bin/cnss-daemon
 vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.1-service
 vendor/bin/wifilearner
 vendor/etc/init/android.hardware.wifi@1.0-service.rc
 vendor/etc/init/vendor.lge.hardware.wifi.hal@1.1-service.rc
 vendor/lib64/libdiagd_client_qca.so
+vendor/lib64/libril_wrapper.so
 vendor/lib64/libwfcu.so
 vendor/lib64/vendor.lge.hardware.wifi.hal@1.0.so
 vendor/lib64/vendor.lge.hardware.wifi.hal@1.1.so
