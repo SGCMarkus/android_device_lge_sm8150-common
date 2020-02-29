@@ -198,7 +198,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.custom_ecc=1 \
-    persist.vendor.radio.procedure_bytes=SKIP
+    persist.vendor.radio.procedure_bytes=SKIP \
+    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
+    persist.vendor.data.mode=concurrent \
+    ril.subscription.types=NV,RUIM \
+    ro.telephony.default_network=10 \
+    ro.vendor.use_data_netmgrd=true \
+    telephony.lteOnCdmaDevice=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
