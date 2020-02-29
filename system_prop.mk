@@ -4,7 +4,10 @@
 
 # Audio
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    audio.deep_buffer.media=true
+    audio.deep_buffer.media=true \
+    tunnel.audio.encode=true \
+    audio.offload.buffer.size.kb=32 \
+    audio.offload.gapless.enabled=true
 
 # Bluetooth
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
