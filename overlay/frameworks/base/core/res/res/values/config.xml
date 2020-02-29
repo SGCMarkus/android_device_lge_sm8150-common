@@ -122,13 +122,10 @@
         <item>wifi_p2p,13,1,0,-1,true</item>
         <item>mobile_ia,14,0,2,-1,true</item>
         <item>mobile_emergency,15,0,2,-1,true</item>
-        <item>mobile_vzwapp,19,0,2,60000,true</item>
-        <item>mobile_rcs,22,0,0,-1,true</item>
+        <item>mobile_vzwapp,22,0,2,60000,true</item>
         <item>mobile_xcap,23,0,2,-1,true</item>
         <item>mobile_admin,24,0,2,60000,true</item>
-        <item>mobile_wap,26,0,2,60000,true</item>
         <item>mobile_bip,27,0,2,60000,true</item>
-        <item>mobile_vtims,28,0,2,-1,true</item>
     </string-array>
 
     <!-- This string array should be overridden by the device to present a list of radio
@@ -178,7 +175,7 @@
 
     <!-- Configure wifi tcp buffersizes in the form:
          rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
-    <string name="config_wifi_tcp_buffers" translatable="false">524288,1048576,4194304,524288,1048576,4194304</string>
+    <string name="config_wifi_tcp_buffers" translatable="false">524288,1048576,2097152,262144,524288,1048576</string>
 
     <!-- Indicate whether closing the lid causes the device to go to sleep and opening
          it causes the device to wake up.
