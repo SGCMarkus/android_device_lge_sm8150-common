@@ -1215,6 +1215,23 @@ vendor/lib64/libssc.so
 vendor/lib64/libssc_default_listener.so
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
+# Sigma - Miracast
+product/lib64/vendor.qti.hardware.sigma_miracast@1.0.so
+product/lib/vendor.qti.hardware.sigma_miracast@1.0.so
+bin/sigma_miracasthalservice
+etc/init/com.qualcomm.qti.sigma_miracast@1.0-service.rc
+lib64/hw/vendor.qti.hardware.sigma_miracast@1.0-impl.so
+lib64/libmiracastsystem.so
+lib64/vendor.qti.hardware.sigma_miracast@1.0-halimpl.so
+lib/hw/vendor.qti.hardware.sigma_miracast@1.0-impl.so
+lib/libmiracastsystem.so
+lib/vendor.qti.hardware.sigma_miracast@1.0-halimpl.so
+vendor/bin/sigma_dut
+vendor/lib64/vendor.qti.hardware.sigma_miracast@1.0.so
+vendor/lib64/libmiracast.so
+vendor/lib/vendor.qti.hardware.sigma_miracast@1.0.so
+vendor/lib/libmiracast.so
+
 # Snapdragon Computer Vision Engine
 product/lib/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
 product/lib/vendor.qti.hardware.scve.objecttracker@1.0.so
