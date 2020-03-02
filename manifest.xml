@@ -289,6 +289,8 @@
         <fqname>@1.2::ISap/slot2</fqname>
         <fqname>@1.4::IRadio/slot1</fqname>
         <fqname>@1.4::IRadio/slot2</fqname>
+        <fqname>@1.4::ISap/slot1</fqname>
+        <fqname>@1.4::ISap/slot2</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio.config</name>
@@ -428,6 +430,15 @@
             <instance>dpmQmiService</instance>
         </interface>
         <fqname>@1.0::IdpmQmi/dpmQmiService</fqname>
+    </hal>
+    <hal format="hidl">
+         <name>com.qualcomm.qti.imscmservice</name>
+         <transport>hwbinder</transport>
+         <version>2.2</version>
+         <interface>
+             <name>IImsCmService</name>
+             <instance>qti.ims.connectionmanagerservice</instance>
+         </interface>
     </hal>
     <hal format="hidl">
         <name>com.qualcomm.qti.uceservice</name>
@@ -680,6 +691,15 @@
         </interface>
         <fqname>@1.0::IIWlan/slot1</fqname>
         <fqname>@1.0::IIWlan/slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.data.latency</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILinkLatency</name>
+            <instance>default</instance>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.display.allocator</name>
