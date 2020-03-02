@@ -589,15 +589,27 @@ vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
 vendor/lib64/vendor.qti.latency@2.0.so
 
 # LGATCMD
+product/lib/libbluedroid_bdt.so
+product/lib64/libbluedroid_bdt.so
 vendor/bin/hw/vendor.lge.hardware.lgatcmd@1.0-service
 vendor/etc/init/vendor.lge.hardware.lgatcmd@1.0-service.rc
 vendor/lib/hw/vendor.lge.hardware.lgatcmd@1.0-impl.so
 vendor/lib/libatd_common.so
 vendor/lib/libatd_corelib.so
 vendor/lib/libatd_modeminterface.so
+vendor/lib/libbluedroid_bdt.so
+vendor/lib/liblgehdcpek.so
+vendor/lib/liblgftmitem_vendor.so
 vendor/lib/libLgeVendorFeatures2.so
+vendor/lib/libLgeVendorProperties.so
+vendor/lib/libunified_sysfs_vendor.so
+vendor/lib/vendor.lge.hardware.filehandle@1.0.so
 vendor/lib/vendor.lge.hardware.lgatcmd@1.0.so
+vendor/lib/libwvoemprov.so
+vendor/lib64/liblgftmitem_vendor.so
 vendor/lib64/libLgeVendorFeatures2.so
+vendor/lib64/libLgeVendorProperties.so
+vendor/lib64/libunified_sysfs_vendor.so
 
 # Listen
 vendor/lib/hw/sound_trigger.primary.msmnile.so
