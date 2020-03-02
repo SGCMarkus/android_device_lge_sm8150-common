@@ -6,6 +6,7 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     ro.af.client_heap_size_kbyte=7168 \
+    aaudio.hw_burst_min_usec=2000 \
     aaudio.mmap_exclusive_policy=2 \
     audio.deep_buffer.media=true \
     audio.dolby.ds2.enabled=false \
@@ -17,6 +18,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicecomm=true \
     persist.audio.fluence.voicerec=false \
+    persist.spkr.cal.duration=0 \
     persist.vendor.audio.fluence.speaker=true \
     persist.vendor.audio.fluence.tmic.enabled=false \
     persist.vendor.audio.fluence.voicecall=true \
@@ -24,6 +26,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.ras.enabled=false \
     persist.vendor.audio.speaker.prot.enable=false \
     persist.vendor.audio.voicecall.speaker.stereo=true \
+    persist.vendor.lge.3rd.speaker.prot.enable=on \
     ro.qc.sdk.audio.fluencetype=none \
     ro.qc.sdk.audio.ssr=false \
     ro.vendor.audio.sdk.fluencetype=nxp \
@@ -113,6 +116,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.lge.audio.hifi_rec.normal_lcf=75 \
     vendor.lge.audio.hifi_rec.normal_lmt=0 \
     vendor.lge.audio.hifi_rec.offset_gain=39 \
+    vendor.lge.fm_gain_control_headset=0.7 \
+    vendor.lge.fm_gain_control_speaker=1.0
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -120,11 +125,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
     persist.vendor.bt.aac_frm_ctl.enabled=true \
+    persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true \
     persist.vendor.qcom.bluetooth.twsp_state.enabled=false \
     persist.vendor.qcom.bluetooth.enable.splita2dp=true \
-    persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
+    persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac \
     ro.bluetooth.a2dp_offload.supported=true \
     vendor.qcom.bluetooth.soc=cherokee
+
+# Charger
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.ctm.disallowed=1
+    persist.vendor.tb.disallowed=1
 
 # Crypto
  PRODUCT_PROPERTY_OVERRIDES += \
@@ -185,7 +196,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    vendor.power.pasr.enabled
 
 # Qualcomm System Daemon
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -193,6 +205,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.lge.service.radio.enable=0 \
     persist.vendor.radio.disable_retry=true \
     persist.vendor.radio.enableadvancedscan=true \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
@@ -201,16 +214,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.procedure_bytes=SKIP \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     persist.vendor.data.mode=concurrent \
-    ril.subscription.types=NV,RUIM \
-    ro.telephony.default_network=10 \
-    ro.vendor.use_data_netmgrd=true \
-    telephony.lteOnCdmaDevice=1
+    ro.telephony.default_network=10
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.sensors.enable.mag_filter=false
 
+# SSR
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# Voice
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.voice.path.for.pcm.voip=false
+
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.lge.wlan.chip.vendor=qcom \
     vendor.lge.wlan.chip.version=wcn399x
+
+# LGE Misc
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.lge.data.sbp.update=0 \
+    persist.vendor.lge.sar_fakestatus=off
