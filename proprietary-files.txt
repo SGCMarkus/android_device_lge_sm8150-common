@@ -48,6 +48,7 @@ vendor/lib/libcomprcapture.so
 vendor/lib/libdrc.so
 vendor/lib/libdts-eagle-shared.so
 vendor/lib/libeaglecore.so
+vendor/lib/libexthwplugin.so
 vendor/lib/libqtigef.so
 vendor/lib/libsndmonitor.so
 vendor/lib/libspkrprot.so
@@ -92,6 +93,7 @@ vendor/lib64/libbluetooth_audio_session_qti.so
 vendor/lib64/libcomprcapture.so
 vendor/lib64/libdts-eagle-shared.so
 vendor/lib64/libeaglecore.so
+vendor/lib64/libexthwplugin.so
 vendor/lib64/libqtigef.so
 vendor/lib64/libsndmonitor.so
 vendor/lib64/libspkrprot.so
