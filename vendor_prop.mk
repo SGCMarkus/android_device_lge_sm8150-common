@@ -125,6 +125,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
     persist.vendor.bt.aac_frm_ctl.enabled=true \
+    persist.vendor.bt.enable.splita2dp=true \
     persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true \
     persist.vendor.qcom.bluetooth.twsp_state.enabled=false \
     persist.vendor.qcom.bluetooth.enable.splita2dp=true \
@@ -132,9 +133,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     vendor.qcom.bluetooth.soc=cherokee
 
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.lge.aux.camera=2 \
+    ro.vendor.lge.dev.fmode=0 \
+    ro.vendor.lge.dev.fmode_exif=0 \
+    ro.vendor.lge.physical.camera=5 \
+    vendor.lge.faceprint.inform.camera=0 \
+    vendor.lge.faceprint.use.camera=0
+
 # Charger
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.ctm.disallowed=1
+    persist.vendor.ctm.disallowed=1 \
+    persist.vendor.lge.service.chg_mode=LGE,QNOVO \
     persist.vendor.tb.disallowed=1
 
 # Crypto
@@ -177,7 +188,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.backup.ntpServer=0.pool.ntp.org
+    persist.backup.ntpServer=0.pool.ntp.org \
+    persist.vendor.lge.gnss.lppe_support=11 \
+    persist.vendor.lge.gnss.week_number=1738
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -197,7 +210,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
-    vendor.power.pasr.enabled
+    vendor.power.pasr.enabled=true
 
 # Qualcomm System Daemon
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -205,7 +218,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.lge.service.radio.enable=0 \
+    persist.vendor.data.mode=concurrent \
     persist.vendor.radio.disable_retry=true \
     persist.vendor.radio.enableadvancedscan=true \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
@@ -213,8 +226,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.procedure_bytes=SKIP \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
-    persist.vendor.data.mode=concurrent \
-    ro.telephony.default_network=10
+    ro.telephony.default_network=26
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -233,7 +245,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.lge.wlan.chip.vendor=qcom \
     vendor.lge.wlan.chip.version=wcn399x
 
-# LGE Misc
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.lge.data.sbp.update=0 \
-    persist.vendor.lge.sar_fakestatus=off

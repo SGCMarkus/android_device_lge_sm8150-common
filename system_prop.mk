@@ -69,7 +69,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     DEVICE_PROVISIONED=1 \
     persist.vendor.data.mode=concurrent \
     ril.subscription.types=NV,RUIM \
-    ro.telephony.default_network=10
+    ro.telephony.default_network=26
 
 # Sensors
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
