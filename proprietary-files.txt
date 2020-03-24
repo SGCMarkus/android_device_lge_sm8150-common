@@ -27,7 +27,7 @@ vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
 vendor/lib64/com.qualcomm.qti.ant@1.0.so
 
 # Audio
-vendor/lib64/hw/audio.primary.msmnile.so|28f7969d3cb044735c2cf315dd7a0237731ce97b
+vendor/lib64/hw/audio.primary.msmnile.so|824ad9a116e787146bd68182c4a936ba7f8bcfe0
 vendor/lib64/libacdb-fts.so|fe092876daa3b3f442c9c0be6250e1b75365bb13
 vendor/lib64/libacdbloader.so|aa6c3b363267fa3fbd9bc2475cebee9ceb40170f
 vendor/lib64/libacdbrtac.so|f24f43ecbdb52b96e2ff0a2d243f7a56d64bcad6
@@ -38,7 +38,7 @@ vendor/lib64/libaudio_log_utils.so|8a915b99b8002e939fd4d07c683dd49db2d972af
 vendor/lib64/libaudioparsers.so|24c7afaac6ca010651e9cac85e178c15c544f61c
 vendor/lib64/libqtigef.so|4027f834e87bc309aae00721cd38103924ff8d45
 vendor/lib64/libtinycompress_vendor.so|9796ae2fb3af505d4b948198db4b65e557d43f63
-vendor/lib/hw/audio.primary.msmnile.so|7f4971fe9214d7d0888d7a1d455f136d9506550d
+vendor/lib/hw/audio.primary.msmnile.so|3fac5a6016671ee725d0053b62c5cd2b087416ff
 vendor/lib/libacdb-fts.so|2909916c262e9e9e91852eb11ee7ca59731b423f
 vendor/lib/libacdbloader.so|02ed857dd702b0d88e298bd96eaf15a46a14ad74
 vendor/lib/libacdbrtac.so|cebfe61b6cde4d4738470e30b1371dea6cd37dee
