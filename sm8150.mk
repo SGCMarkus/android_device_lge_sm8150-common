@@ -194,6 +194,10 @@ PRODUCT_PACKAGES += \
 	qcom.fmradio \
 	qcom.fmradio.xml
 
+# Gesture handler
+PRODUCT_PACKAGES += \
+    GestureHandler
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
