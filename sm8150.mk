@@ -354,7 +354,8 @@ PRODUCT_COPY_FILES += \
 
 # Permissions (System)
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml
+    $(COMMON_PATH)/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
+    $(COMMON_PATH)/permissions/privapp-permissions-lge_sm8150.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lge_sm8150.xml
 
 # Permissions (Product)
 PRODUCT_COPY_FILES += \
