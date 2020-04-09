@@ -18,6 +18,9 @@ BUILD_BROKEN_DUP_RULES := true
 
 COMMON_PATH := device/lge/sm8150-common
 
+# inherit from common lge
+-include device/lge/common/BoardConfigCommon.mk
+
 # Platform
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
