@@ -50,9 +50,6 @@
         <param backend_dai_name="SLIMBUS_3_TX" />
         <!-- Param used to indicate if SVA has dedicated SLIM ports -->
         <param dedicated_sva_path="false" />
-        <param concurrent_capture="true" />
-        <param concurrent_voice_call="true" />
-        <param concurrent_voip_call="true" />
     </common_config>
     <acdb_ids>
         <param DEVICE_HANDSET_MIC_APE="100" />

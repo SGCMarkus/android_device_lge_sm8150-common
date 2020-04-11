@@ -239,7 +239,7 @@
     </path>
 
     <path name="listen-cpe-handset-dmic">
-        <ctl name="CLK MODE" value="INTERNAL" />
+        <ctl name="CLK MODE" value="EXTERNAL" />
         <ctl name= "ADC MUX0" value="AMIC" />
         <ctl name= "AMIC MUX0" value="ADC1" />
         <ctl name="ADC1 Volume" value="16" />
@@ -256,7 +256,7 @@
     </path>
 
     <path name="listen-cpe-handset-tmic">
-        <ctl name="CLK MODE" value="INTERNAL" />
+        <ctl name="CLK MODE" value="EXTERNAL" />
         <ctl name= "ADC MUX0" value="AMIC" />
         <ctl name= "AMIC MUX0" value="ADC1" />
         <ctl name= "DEC0 Volume" value="84" />
@@ -277,7 +277,7 @@
     </path>
 
     <path name="listen-cpe-handset-qmic">
-        <ctl name="CLK MODE" value="INTERNAL" />
+        <ctl name="CLK MODE" value="EXTERNAL" />
         <ctl name= "ADC MUX0" value="DMIC" />
         <ctl name= "DMIC MUX0" value="DMIC2" />
         <ctl name= "DEC0 Volume" value="84" />
@@ -309,7 +309,7 @@
     </path>
 
     <path name="listen-cpe-handset-mic-ecpp">
-        <ctl name="CLK MODE" value="INTERNAL" />
+        <ctl name="CLK MODE" value="EXTERNAL" />
         <ctl name="EC BUF MUX INP" value="DEC1" />
         <ctl name="ADC MUX1" value="AMIC" />
         <ctl name="AMIC MUX1" value="ADC1" />
