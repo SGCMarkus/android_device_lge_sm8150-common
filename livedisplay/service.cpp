@@ -22,7 +22,6 @@
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
 
-#include "ColorEnhancement.h"
 #include "DisplayModes.h"
 #include "PictureAdjustment.h"
 
@@ -36,10 +35,8 @@ using android::status_t;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
-using ::vendor::lineage::livedisplay::V2_0::IColorEnhancement;
 using ::vendor::lineage::livedisplay::V2_0::IDisplayModes;
 using ::vendor::lineage::livedisplay::V2_0::IPictureAdjustment;
-using ::vendor::lineage::livedisplay::V2_0::implementation::ColorEnhancement;
 using ::vendor::lineage::livedisplay::V2_0::implementation::DisplayModes;
 using ::vendor::lineage::livedisplay::V2_0::implementation::PictureAdjustment;
 
@@ -52,7 +49,6 @@ int main() {
     uint64_t cookie = 0;
 
     // HIDL frontend
-    sp<ColorEnhancement> ce;
     sp<DisplayModes> dm;
     sp<PictureAdjustment> pa;
 
@@ -61,14 +57,6 @@ int main() {
     android::ProcessState::initWithDriver("/dev/vndbinder");
 
     LOG(INFO) << "LiveDisplay HAL service is starting.";
-
-
-    ce = new ColorEnhancement();
-    if (ce == nullptr) {
-        LOG(ERROR)
-                << "Can not create an instance of LiveDisplay HAL ColorEnhancement Iface, exiting.";
-        goto shutdown;
-    }
 
     dm = new DisplayModes();
     if (dm == nullptr) {
@@ -125,11 +113,6 @@ int main() {
     }
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
-
-    if (ce->registerAsService() != android::OK) {
-        LOG(ERROR) << "Cannot register ColorEnhancement HAL service.";
-        goto shutdown;
-    }
 
     if (dm->registerAsService() != android::OK) {
         LOG(ERROR) << "Cannot register DisplayModes HAL service.";

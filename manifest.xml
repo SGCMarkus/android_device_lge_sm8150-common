@@ -1042,10 +1042,6 @@
             <name>IPictureAdjustment</name>
             <instance>default</instance>
         </interface>
-        <interface>
-            <name>IColorEnhancement</name>
-            <instance>default</instance>
-        </interface>
     </hal>
     <hal format="hidl">
         <name>vendor.lineage.trust</name>
