@@ -1306,12 +1306,9 @@ vendor/lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so
 
 # Wifi - Configs
 vendor/etc/wifi/p2p_supplicant.conf
-vendor/etc/wifi/p2p_supplicant_overlay.conf
 vendor/etc/wifi/PerProviderSubscription.conf
-vendor/etc/wifi/WCNSS_qcom_cfg.ini
 vendor/etc/wifi/wifi_concurrency_cfg.txt
 vendor/etc/wifi/wpa_supplicant.conf
-vendor/etc/wifi/wpa_supplicant_overlay.conf
 
 # Wifi - Wigig
 product/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
