@@ -1284,31 +1284,10 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
 
 # Wifi
-vendor/bin/hw/wlan_ril
 vendor/bin/cnss-daemon
-vendor/bin/hw/vendor.lge.hardware.wifi.hal@1.1-service
 vendor/bin/wifilearner
-vendor/etc/init/android.hardware.wifi@1.0-service.rc
-vendor/etc/init/vendor.lge.hardware.wifi.hal@1.1-service.rc
 vendor/etc/init/vendor.qti.hardware.wifi.wifilearner@1.0-service.rc
-vendor/lib/libdiagd_client_qca.so
-vendor/lib/libril_wrapper.so
-vendor/lib64/libdiagd_client_qca.so
-vendor/lib64/libril_wrapper.so
-vendor/lib64/libwfcu.so
-vendor/lib64/vendor.lge.hardware.wifi.hal@1.0.so
-vendor/lib64/vendor.lge.hardware.wifi.hal@1.1.so
-vendor/lib64/vendor.lge.hardware.wifi.hostapd@2.0.so
-vendor/lib64/vendor.lge.hardware.wifi.supplicant@1.0.so
-vendor/lib64/vendor.lge.hardware.wifi.supplicant@2.0.so
-vendor/lib64/vendor.lge.hardware.wifi.supplicant@3.0.so
 vendor/lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so
-
-# Wifi - Configs
-vendor/etc/wifi/p2p_supplicant.conf
-vendor/etc/wifi/PerProviderSubscription.conf
-vendor/etc/wifi/wifi_concurrency_cfg.txt
-vendor/etc/wifi/wpa_supplicant.conf
 
 # Wifi - Wigig
 product/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
