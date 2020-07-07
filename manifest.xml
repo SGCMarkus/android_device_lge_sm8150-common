@@ -481,36 +481,6 @@
         <fqname>@1.0::IDisplayPostproc/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.lge.hardware.bootproperty</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IBootProperty</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IBootProperty/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.platform</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IPlatform</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.1::IPlatform/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.property</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IProperty</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@2.0::IProperty/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.lge.hardware.radio</name>
         <transport>hwbinder</transport>
         <version>1.3</version>
@@ -525,16 +495,6 @@
         <fqname>@1.3::ILgeRadio/lge_radio2</fqname>
         <fqname>@1.3::ILgeRadio/radio1_wifi</fqname>
         <fqname>@1.3::ILgeRadio/radio2_wifi</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lge.hardware.soi</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ISoi</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::ISoi/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.lge.hardware.vss_ims</name>

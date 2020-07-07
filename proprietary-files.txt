@@ -88,16 +88,6 @@ vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so|eabf2d27acfd101c8ef9b9b46d081
 lib64/libaptX_encoder.so:product/lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so:product/lib64/libaptXHD_encoder.so
 
-# Bootproperty
-product/lib64/vendor.lge.hardware.bootproperty@1.0.so
-product/lib/vendor.lge.hardware.bootproperty@1.0.so
-vendor/bin/hw/vendor.lge.hardware.bootproperty@1.0-service
-vendor/etc/init/vendor.lge.hardware.bootproperty@1.0-service.rc
-vendor/lib64/hw/vendor.lge.hardware.bootproperty@1.0-impl.so
-vendor/lib64/vendor.lge.hardware.bootproperty@1.0.so
-vendor/lib/hw/vendor.lge.hardware.bootproperty@1.0-impl.so
-vendor/lib/vendor.lge.hardware.bootproperty@1.0.so
-
 # CDSP
 vendor/bin/cdsprpcd
 vendor/lib/libcdsp_default_listener.so
@@ -535,31 +525,6 @@ vendor/lib/vendor.qti.latency@2.0.so
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
 vendor/lib64/vendor.qti.latency@2.0.so
 
-# LGATCMD
-product/lib/libbluedroid_bdt.so
-product/lib64/libbluedroid_bdt.so
-vendor/bin/hw/vendor.lge.hardware.lgatcmd@1.0-service
-vendor/etc/init/vendor.lge.hardware.lgatcmd@1.0-service.rc
-vendor/lib/hw/vendor.lge.hardware.lgatcmd@1.0-impl.so
-vendor/lib/libatd_common.so
-vendor/lib/libatd_corelib.so
-vendor/lib/libatd_modeminterface.so
-vendor/lib/libbluedroid_bdt.so
-vendor/lib/libdiagd_client_qca.so
-vendor/lib/liblgehdcpek.so
-vendor/lib/liblgftmitem_vendor.so
-vendor/lib/libLgeVendorFeatures2.so
-vendor/lib/libLgeVendorProperties.so
-vendor/lib/libunified_sysfs_vendor.so
-vendor/lib/vendor.lge.hardware.filehandle@1.0.so
-vendor/lib/vendor.lge.hardware.lgatcmd@1.0.so
-vendor/lib/libwvoemprov.so
-vendor/lib64/libdiagd_client_qca.so
-vendor/lib64/liblgftmitem_vendor.so
-vendor/lib64/libLgeVendorFeatures2.so
-vendor/lib64/libLgeVendorProperties.so
-vendor/lib64/libunified_sysfs_vendor.so
-
 # Listen
 vendor/lib/hw/sound_trigger.primary.msmnile.so|72f83f734aa2bd619e705ab49e1b72f20c3da4ef
 vendor/lib/libadpcmdec.so|709c018d5d949ba0dbd0895d946f842b0b96803f
@@ -751,28 +716,6 @@ vendor/bin/pm-proxy
 vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
-
-# Platform
-product/lib64/vendor.lge.hardware.platform@1.0.so
-product/lib64/vendor.lge.hardware.platform@1.1.so
-product/lib/vendor.lge.hardware.platform@1.0.so
-product/lib/vendor.lge.hardware.platform@1.1.so
-vendor/bin/hw/vendor.lge.hardware.platform@1.1-service
-vendor/etc/init/vendor.lge.hardware.platform@1.1-service.rc
-vendor/lib64/vendor.lge.hardware.platform@1.0.so
-vendor/lib64/vendor.lge.hardware.platform@1.1.so
-
-# Property
-product/lib64/vendor.lge.hardware.property@1.0.so
-product/lib64/vendor.lge.hardware.property@2.0.so
-product/lib/vendor.lge.hardware.property@1.0.so
-product/lib/vendor.lge.hardware.property@2.0.so
-vendor/bin/hw/vendor.lge.hardware.property@2.0-service
-vendor/etc/init/vendor.lge.hardware.property@2.0-service.rc
-vendor/lib64/hw/vendor.lge.hardware.property@2.0-impl.so
-vendor/lib64/vendor.lge.hardware.property@2.0.so
-vendor/lib/hw/vendor.lge.hardware.property@2.0-impl.so
-vendor/lib/vendor.lge.hardware.property@2.0.so
 
 # Qualcomm Display Utils
 product/lib/vendor.qti.hardware.qdutils_disp@1.0.so
@@ -1011,12 +954,6 @@ vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 
 # RIL - IMS
 etc/permissions/com.qualcomm.qti.imscmservice.xml
-lib/libLgeProductFeatures2.so
-lib/libmmrtpdecoder.so
-lib/libmmrtpencoder.so
-lib64/libLgeProductFeatures2.so
-lib64/libmmrtpdecoder.so
-lib64/libmmrtpencoder.so
 product/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
 product/etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
 product/etc/permissions/com.qualcomm.qti.imscmservice-V2.2-java.xml
@@ -1030,11 +967,6 @@ product/lib/com.qualcomm.qti.imscmservice@2.0.so
 product/lib/com.qualcomm.qti.imscmservice@2.1.so
 product/lib/com.qualcomm.qti.imscmservice@2.2.so
 product/lib/com.qualcomm.qti.uceservice@2.0.so
-product/lib/lib-imsvt.so
-product/lib/lib-imsvtextutils.so
-product/lib/lib-imsvtutils.so
-product/lib/libimscamera_jni.so
-product/lib/libimsmedia_jni.so
 product/lib/vendor.qti.hardware.radio.ims@1.0.so
 product/lib/vendor.qti.hardware.radio.ims@1.1.so
 product/lib/vendor.qti.hardware.radio.ims@1.2.so
@@ -1049,16 +981,6 @@ product/lib64/com.qualcomm.qti.imscmservice@2.0.so
 product/lib64/com.qualcomm.qti.imscmservice@2.1.so
 product/lib64/com.qualcomm.qti.imscmservice@2.2.so
 product/lib64/com.qualcomm.qti.uceservice@2.0.so
-product/lib64/lib-imsvt.so
-product/lib64/lib-imsvtextutils.so
-product/lib64/lib-imsvtutils.so
-product/lib64/libims.lge.so
-product/lib64/libimscamera_jni.so
-product/lib64/libimscamerajni.lge.so
-product/lib64/libimsmedia_jni.so
-product/lib64/libimsmmpf.lge.so
-product/lib64/libimsvtjni.lge.so
-product/lib64/libimswms.lge.so
 product/lib64/vendor.qti.hardware.radio.ims@1.0.so
 product/lib64/vendor.qti.hardware.radio.ims@1.1.so
 product/lib64/vendor.qti.hardware.radio.ims@1.2.so
@@ -1237,20 +1159,6 @@ vendor/lib64/libscveScan3D.so
 vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
 vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
 
-# Soi
-product/lib64/vendor.lge.hardware.soi@1.0.so
-product/lib/vendor.lge.hardware.soi@1.0.so
-vendor/bin/hw/vendor.lge.hardware.soi@1.0-service
-vendor/etc/init/vendor.lge.hardware.soi@1.0-service.rc
-vendor/lib64/hw/vendor.lge.hardware.soi@1.0-impl.so
-vendor/lib64/liblgesoi-impl.so
-vendor/lib64/libqmi_wms_client_helper.so
-vendor/lib64/vendor.lge.hardware.soi@1.0.so
-vendor/lib/hw/vendor.lge.hardware.soi@1.0-impl.so
-vendor/lib/liblgesoi-impl.so
-vendor/lib/libqmi_wms_client_helper.so
-vendor/lib/vendor.lge.hardware.soi@1.0.so
-
 # Soter
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
 vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
@@ -1325,6 +1233,8 @@ vendor/etc/wfdconfig.xml
 etc/wfdconfigsink.xml
 -framework/WfdCommon.jar
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+lib/libmmrtpdecoder.so
+lib/libmmrtpencoder.so
 lib/libmmparser_lite.so
 lib/libOmxMux.so
 lib/libwfdavenhancements.so
@@ -1343,6 +1253,8 @@ lib/libwfduibcsinkinterface.so
 lib/libwfduibcsrc.so
 lib/libwfduibcsrcinterface.so
 lib/libwfd_remoteif.so
+lib64/libmmrtpdecoder.so
+lib64/libmmrtpencoder.so
 lib64/libmmparser_lite.so
 lib64/libwfdclient.so
 lib64/libwfdcommonutils.so
