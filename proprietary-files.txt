@@ -545,6 +545,7 @@ vendor/lib/libatd_common.so
 vendor/lib/libatd_corelib.so
 vendor/lib/libatd_modeminterface.so
 vendor/lib/libbluedroid_bdt.so
+vendor/lib/libdiagd_client_qca.so
 vendor/lib/liblgehdcpek.so
 vendor/lib/liblgftmitem_vendor.so
 vendor/lib/libLgeVendorFeatures2.so
@@ -553,6 +554,7 @@ vendor/lib/libunified_sysfs_vendor.so
 vendor/lib/vendor.lge.hardware.filehandle@1.0.so
 vendor/lib/vendor.lge.hardware.lgatcmd@1.0.so
 vendor/lib/libwvoemprov.so
+vendor/lib64/libdiagd_client_qca.so
 vendor/lib64/liblgftmitem_vendor.so
 vendor/lib64/libLgeVendorFeatures2.so
 vendor/lib64/libLgeVendorProperties.so
