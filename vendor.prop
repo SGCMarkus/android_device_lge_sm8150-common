@@ -72,15 +72,9 @@ vendor.lge.fm_gain_control_speaker=1.0
 
 # Bluetooth
 persist.bluetooth.a2dp_offload.disabled=false
-persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 persist.vendor.bt.aac_frm_ctl.enabled=true
-persist.vendor.bt.enable.splita2dp=true
-persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
-persist.vendor.qcom.bluetooth.twsp_state.enabled=false
-persist.vendor.qcom.bluetooth.enable.splita2dp=true
-persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac
-ro.bluetooth.a2dp_offload.supported=true
+persist.vendor.bt.aac_frm_ctl.enabled=true
 vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
@@ -171,8 +165,4 @@ persist.vendor.ssr.restart_level=ALL_ENABLE
 
 # Voice
 vendor.voice.path.for.pcm.voip=false
-
-# Wifi
-vendor.lge.wlan.chip.vendor=qcom
-vendor.lge.wlan.chip.version=wcn399x
 
