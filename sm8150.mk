@@ -260,7 +260,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-lge_sm8150
+    vendor.lineage.livedisplay@2.0-service-lge_msmnile
 
 # Media
 PRODUCT_COPY_FILES += \

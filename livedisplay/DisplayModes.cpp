@@ -25,7 +25,7 @@ namespace V2_0 {
 namespace implementation {
 
 static constexpr const char* kModePath = "/sys/devices/virtual/panel/img_tune/screen_mode";
-static constexpr const char* kDefaultPath = "/data/misc/display/default_screen_mode";
+static constexpr const char* kDefaultPath = "/data/vendor/display/default_screen_mode";
 
 const std::map<int32_t, DisplayModes::ModeInfo> DisplayModes::kModeMap = {
     {0, {"Cinema", "1"}},

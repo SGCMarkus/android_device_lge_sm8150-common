@@ -9,7 +9,7 @@ on init
     chown system system /sys/devices/virtual/panel/img_tune/hdr_mode
     chmod 0660 /sys/devices/virtual/panel/img_tune/hdr_mode
 
-service vendor.livedisplay-hal-2-0-lge_sm8150 /vendor/bin/hw/vendor.lineage.livedisplay@2.0-service-lge_sm8150
+service vendor.livedisplay-hal-2-0-lge_msmnile /vendor/bin/hw/vendor.lineage.livedisplay@2.0-service-lge_msmnile
     class hal
     user system
     group system
