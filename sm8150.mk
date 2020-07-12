@@ -394,7 +394,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.2-service.lge_msmnile
+    android.hardware.vibrator@1.2-service.lge
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
