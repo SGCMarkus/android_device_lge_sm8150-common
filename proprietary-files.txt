@@ -69,7 +69,6 @@ vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|d0bfcd8ff942524ea980be9
 vendor/bin/athdiag|192190f92fc2aa366bb5304ef7f0fb09568f4131
 vendor/bin/btnvtool|53fd4125af28c874ef726d0680054a468f51fef1
 vendor/bin/hci_qcomm_init|d426f4ba6b2fa8acb28fd79f12707f3acd7f9453
-vendor/bin/wcnss_filter|b4e790d3585c7c71daf1f620868e30ddc216372c
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|a979981c55f3dcaf6cf2212e71b901ca4d58b959
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|e1cd423452d5e45cd17e53f5a418f4486fc0a55e
 vendor/lib64/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so|25079549a6b336680a514e2b4946c4857f1cabd7
