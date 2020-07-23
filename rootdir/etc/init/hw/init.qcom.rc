@@ -1062,6 +1062,16 @@ service time_daemon /vendor/bin/time_daemon
     group system
     capabilities SYS_TIME
 
+service vendor.fm_disable /vendor/bin/fm_disable.sh
+    class late_start
+    user root
+    group root system
+    disabled
+    oneshot
+
+on property:ro.boot.vendor.lge.fmradio=0 && sys.boot_completed=1
+    start vendor.fm_disable
+
 # Set vendor-ril lib path based on Meta version
 on property:vendor.rild.libpath=*
     setprop rild.libpath ${vendor.rild.libpath}
