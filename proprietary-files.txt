@@ -163,17 +163,12 @@ vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so
 
 # ConfigStore
 -product/framework/vendor.qti.hardware.capabilityconfigstore-V1.0-java.jar
-product/lib/vendor.lge.hardware.configstore@1.0.so
-product/lib64/vendor.lge.hardware.configstore@1.0.so
-vendor/bin/hw/vendor.lge.hardware.configstore@1.0-service
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
-vendor/etc/init/vendor.lge.hardware.configstore@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 -vendor/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so
 -vendor/lib/libplatformconfig.so
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
-vendor/lib64/vendor.lge.hardware.configstore@1.0.so
 -vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
 -vendor/lib64/libplatformconfig.so
 
