@@ -1,0 +1,6 @@
+binder_call(hal_vss_ims_client, hal_vss_ims_server)
+binder_call(hal_vss_ims_server, hal_vss_ims_client)
+
+add_hwservice(hal_vss_ims_server, hal_vss_ims_hwservice)
+allow hal_vss_ims_client hal_vss_ims_hwservice:hwservice_manager find;
+

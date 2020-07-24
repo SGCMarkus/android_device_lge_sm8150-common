@@ -1,0 +1,4 @@
+allow ueventd persistlg_file:dir search;
+
+allow ueventd persistlg_wlan_file:dir r_dir_perms;
+allow ueventd persistlg_wlan_file:file r_file_perms;

@@ -1,0 +1,4 @@
+# Encryption
+allow vold encrypt_block_device:blk_file rw_file_perms;
+
+allow vold { persdata_file persistlg_file sns_file persist_file qni_power_file }:dir r_dir_perms;

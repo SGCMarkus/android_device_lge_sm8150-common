@@ -124,6 +124,12 @@ user: AID_GPS
 group: AID_GPS
 caps: NET_BIND_SERVICE
 
+[system/vendor/bin/qni]
+mode: 0755
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: NET_ADMIN BLOCK_SUSPEND
+
 [vendor/bin/cnd]
 mode: 0755
 user: AID_SYSTEM
@@ -201,6 +207,12 @@ mode: 0755
 user: AID_GPS
 group: AID_GPS
 caps: NET_BIND_SERVICE WAKE_ALARM BLOCK_SUSPEND
+
+[vendor/bin/qni]
+mode: 0755
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: NET_ADMIN BLOCK_SUSPEND
 
 [vendor/firmware_mnt/image/*]
 mode: 0771

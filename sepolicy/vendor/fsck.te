@@ -1,0 +1,9 @@
+allow fsck { persdata_block_device 
+             power_block_device 
+             sns_block_device }:file rw_file_perms;
+
+
+allow fsck { persdata_block_device 
+             power_block_device 
+             sns_block_device }:blk_file rw_file_perms;
+

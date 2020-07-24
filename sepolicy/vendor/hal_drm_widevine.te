@@ -1,0 +1,9 @@
+allow hal_drm_widevine persistlg_drm_file:dir { r_dir_perms search };
+allow hal_drm_widevine persistlg_drm_file:file r_file_perms;
+
+allow hal_drm_widevine persistlg_firmware_file:dir { rw_dir_perms search };
+allow hal_drm_widevine persistlg_firmware_file:file { rw_file_perms setattr };
+
+allow hal_drm_widevine persistlg_file:dir r_dir_perms;
+
+allow hal_drm_widevine mnt_vendor_file:dir r_dir_perms;

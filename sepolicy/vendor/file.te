@@ -1,0 +1,26 @@
+# OP
+type op_file, file_type;
+type op_audio_file, file_type;
+
+# LG
+type persdata_file, file_type;
+
+# Persist
+type persistlg_file, file_type;
+type persistlg_camera_file, file_type;
+type persistlg_data_file, file_type;
+type persistlg_drm_file, file_type;
+type persistlg_firmware_file, file_type;
+type persistlg_goodix_file, file_type;
+type persistlg_wlan_file, file_type;
+
+# Power
+type qni_power_file, file_type;
+
+# SNS
+type sns_file, file_type;
+
+# Sysfs
+type sysfs_veneer, sysfs_type, fs_type;
+type sysfs_qnovo, sysfs_type, fs_type;
+type sysfs_boot_cdsp, sysfs_type, fs_type;

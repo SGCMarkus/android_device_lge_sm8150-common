@@ -1,0 +1,6 @@
+#binder_call(hal_lge_configstore_client, hal_lge_configstore_server)
+#binder_call(hal_lge_configstore_server, hal_lge_configstore_client)
+
+#add_hwservice(hal_lge_configstore_server, hal_lge_configstore_hwservice)
+#allow hal_lge_configstore_client hal_lge_configstore_hwservice:hwservice_manager find;
+

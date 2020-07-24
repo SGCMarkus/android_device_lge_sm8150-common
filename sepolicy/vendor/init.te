@@ -1,0 +1,12 @@
+allow init { persdata_block_device 
+             qni_power_file 
+             sns_file }:filesystem { mount relabelfrom relabelto };
+
+
+allow init { persdata_block_device 
+             qni_power_file 
+             sns_file }:dir mounton;
+
+allow init firmware_file:filesystem getattr;
+
+allow init encrypt_block_device:blk_file write;

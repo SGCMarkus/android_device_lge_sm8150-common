@@ -1,0 +1,59 @@
+# Block devices
+/dev/block/platform/soc/1d84000\.ufshc/by-name/encrypt                   u:object_r:encrypt_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/persdata                  u:object_r:persdata_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/power                     u:object_r:power_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/secdata                   u:object_r:sec_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/sns                       u:object_r:sns_block_device:s0
+
+# Devices
+/dev/goodix_fp            u:object_r:fingerprintd_device:s0
+/dev/pn547                u:object_r:nfc_device:s0
+
+# Init
+/(vendor|system/vendor)/bin/init\.lge\.usb\.default\.sh                                                 u:object_r:qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.lge\.usb\.lao\.sh                                                     u:object_r:qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.lge\.usb\.sh                                                          u:object_r:qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.lge\.zramswap\.sh                                                     u:object_r:qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.qcom\.devstart\.sh                                                    u:object_r:qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.qti\.chg_policy\.sh                                                   u:object_r:qti_init_shell_exec:s0
+
+# HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.lge_msmnile                       u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-qti                       u:object_r:hal_neuralnetworks_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc@1\.2-service-pn55x                                u:object_r:hal_nfc_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.biometrics\.fingerprint@2\.1-service              u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.vss_ims@1\.0-service                              u:object_r:hal_vss_ims_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.lge_msmnile                   u:object_r:hal_livedisplay_lge_msmnile_exec:s0
+/(vendor|system/vendor)/bin/cpfirmware                                                                  u:object_r:hal_drm_widevine_exec:s0
+/(vendor|system/vendor)/bin/ppd                                                                         u:object_r:hal_display_color_default_exec:s0
+/(vendor|system/vendor)/bin/qni                                                                         u:object_r:qni_exec:s0
+/(vendor|system/vendor)/bin/qrtr-lookup                                                                 u:object_r:qrtr_exec:s0
+/(vendor|system/vendor)/bin/wigig_wiburn                                                                u:object_r:wigig_wiburn_exec:s0
+
+# LG
+/mnt/vendor/absolute(/.*)?                              u:object_r:persdata_file:s0
+
+# OP files
+/product/OP(/.*)?                                       u:object_r:op_file:s0
+/product/OP/audio(/.*)?                                 u:object_r:op_audio_file:s0
+
+# Persist files
+/mnt/vendor/persist(/.*)?                               u:object_r:persist_file:s0
+/mnt/vendor/persist-lg(/.*)?                            u:object_r:persistlg_file:s0
+/mnt/vendor/persist-lg/camera(/.*)?                     u:object_r:persistlg_camera_file:s0
+/mnt/vendor/persist-lg/data(/.*)?                       u:object_r:persistlg_data_file:s0
+/mnt/vendor/persist-lg/firmware(/.*)?                   u:object_r:persistlg_firmware_file:s0
+/mnt/vendor/persist-lg/goodix(/.*)?                     u:object_r:persistlg_goodix_file:s0
+/mnt/vendor/persist-lg/widevine(/.*)?                   u:object_r:persistlg_drm_file:s0
+/mnt/vendor/persist-lg/wifi(/.*)?                       u:object_r:persistlg_wlan_file:s0
+/mnt/vendor/persist-lg/wifi/qcom(/.*)?                  u:object_r:persistlg_wlan_file:s0
+
+# Power
+/mnt/vendor/power(/.*)?                                 u:object_r:qni_power_file:s0
+
+# SNS
+/mnt/vendor/sns(/.*)?                                   u:object_r:sns_file:s0
+
+# Sys files
+/sys/class/qnovo(/.*)?                                  u:object_r:sysfs_qnovo:s0
+/sys/kernel/boot_cdsp/boot                              u:object_r:sysfs_boot_cdsp:s0

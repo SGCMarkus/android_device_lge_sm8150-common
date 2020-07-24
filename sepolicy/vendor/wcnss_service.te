@@ -1,0 +1,7 @@
+allow wcnss_service mnt_vendor_file:dir search;
+allow wcnss_service persistlg_file:dir search;
+
+allow wcnss_service persistlg_wlan_file:dir r_dir_perms;
+allow wcnss_service persistlg_wlan_file:lnk_file r_file_perms;
+
+allow wcnss_service sysfs_net:dir r_dir_perms;

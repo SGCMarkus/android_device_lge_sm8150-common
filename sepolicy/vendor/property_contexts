@@ -1,0 +1,60 @@
+# Audio
+audio.dolby.ds2.                                    u:object_r:vendor_audio_prop:s0
+audio.sys.noisy.broadcast.delay                     u:object_r:vendor_audio_prop:s0
+audio.sys.offload.pstimeout.secs                    u:object_r:vendor_audio_prop:s0
+persist.spkr.cal.duration                           u:object_r:vendor_audio_prop:s0
+persist.vendor.lge.3rd.speaker.prot.enable          u:object_r:vendor_audio_prop:s0
+ro.qc.sdk.audio.                                    u:object_r:vendor_audio_prop:s0
+vendor.lge.wlan.earpiece                            u:object_r:vendor_audio_prop:s0
+
+# Audio - DAC
+persist.vendor.lge.audio.                           u:object_r:vendor_audio_prop:s0
+ro.vendor.lge.config.hifi_enhance_support           u:object_r:vendor_audio_prop:s0
+ro.vendor.lge.feature.use_audio_headset_type_ext    u:object_r:vendor_audio_prop:s0
+vendor.lge.audio.hifi_rec.                          u:object_r:vendor_audio_prop:s0
+vendor.lge.fm_gain_control_headset                  u:object_r:vendor_audio_prop:s0
+vendor.lge.fm_gain_control_speaker                  u:object_r:vendor_audio_prop:s0
+
+# Camera
+persist.vendor.lge.camera.                          u:object_r:vendor_camera_prop:s0
+ro.camera.req.fmq.size                              u:object_r:vendor_camera_prop:s0
+ro.vendor.lge.aux.camera                            u:object_r:vendor_camera_prop:s0
+ro.vendor.lge.dev.fmode                             u:object_r:vendor_camera_prop:s0
+ro.vendor.lge.dev.fmode_exif                        u:object_r:vendor_camera_prop:s0
+ro.vendor.lge.physical.camera                       u:object_r:vendor_camera_prop:s0
+vendor.lge.camera.pd_test.result                    u:object_r:vendor_camera_prop:s0
+vendor.lge.faceprint.inform.camera                  u:object_r:vendor_camera_prop:s0
+vendor.lge.faceprint.use.camera                     u:object_r:vendor_camera_prop:s0
+
+# Charger
+#persist.vendor.lge.service.chg_mode                 u:object_r:power_prop:s0
+
+# LGE Misc
+ro.vendor.lge.build.target_country                  u:object_r:vendor_lge_misc_prop:s0
+ro.vendor.lge.build.target_operator                 u:object_r:vendor_lge_misc_prop:s0
+ro.vendor.lge.capp_cupss.op.dir                     u:object_r:vendor_lge_misc_prop:s0
+ro.vendor.lge.capp_cupss.persistlg.dir              u:object_r:vendor_lge_misc_prop:s0
+ro.vendor.lge.capp_cupss.rootdir                    u:object_r:vendor_lge_misc_prop:s0
+ro.vendor.lge.swversion                             u:object_r:vendor_lge_misc_prop:s0
+
+# LiveDisplay
+vendor.display.mode                                 u:object_r:vendor_display_prop:s0
+
+# Sensors
+persist.vendor.sensors.enable.mag_filter            u:object_r:vendor_sensors_prop:s0
+
+# QNI
+vendor.lge.qnovo.qni.cap_proj                       u:object_r:vendor_qni_prop:s0
+vendor.lge.qnovo.qni.health                         u:object_r:vendor_qni_prop:s0
+vendor.lge.qnovo.qni.safety                         u:object_r:vendor_qni_prop:s0
+vendor.lge.qnovo.qni.v-t_warning                    u:object_r:vendor_qni_prop:s0
+persist.vendor.lge.service.chg_mode                 u:object_r:vendor_qni_prop:s0
+persist.vendor.lge.service.kernel.enable            u:object_r:vendor_qni_prop:s0
+
+# RIL
+vendor.lge.ril.ecclist.withcat                      u:object_r:exported_radio_prop:s0
+vendor.lge.ril.modembsp.bootup                      u:object_r:exported_radio_prop:s0
+vendor.lge.ril.sim_inserted.slot1                   u:object_r:exported_radio_prop:s0
+vendor.lge.ril.sim_inserted.slot2                   u:object_r:exported_radio_prop:s0
+vendor.lge.ril.vss.common_init                      u:object_r:exported_radio_prop:s0
+vendor.lge.ril.vss.nv_init                          u:object_r:exported_radio_prop:s0
