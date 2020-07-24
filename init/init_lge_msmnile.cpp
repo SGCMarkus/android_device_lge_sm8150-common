@@ -70,55 +70,43 @@ void property_override(const std::string& name, const std::string& value)
 
 void init_target_properties()
 {
-    std::string device;
+    std::string model;
+    std::string product_name;
     std::string cmdline;
-    bool unknownDevice = true;
+    bool unknownModel = true;
     bool dualSim = false;
-    bool isGlobal = false;
 
     android::base::ReadFileToString("/proc/cmdline", &cmdline);
 
     for (const auto& entry : android::base::Split(android::base::Trim(cmdline), " ")) {
         std::vector<std::string> pieces = android::base::Split(entry, "=");
         if (pieces.size() == 2) {
-            if(pieces[0].compare("androidboot.vendor.lge.model.name") == 0)
+            if(pieces[0].compare("androidboot.vendor.lge.product.model") == 0)
             {
-            	device = pieces[1];
-		unknownDevice = false;
+                model = pieces[1];
+                unknownModel = false;
             } else if(pieces[0].compare("androidboot.vendor.lge.sim_num") == 0 && pieces[1].compare("2") == 0)
             {
-		dualSim = true;
-            } else if(pieces[0].compare("lge.ntcode_op") == 0 && pieces[1].compare("GLOBAL") == 0)
-            {
-                isGlobal = true;
+                dualSim = true;
             }
         }
     }
 
-    if(unknownDevice)
+    if(unknownModel)
     {
-        device = "UNKNOWN";
+        model = "UNKNOWN";
     }
 
     if(dualSim)
     {
         property_set("persist.radio.multisim.config", "dsds");
     }
-    /*
-    if(isGlobal)
-    {
-        property_set("ro.product.name", "judypn_lao_eea");
-        property_set("ro.product.vendor.name", "judypn_lao_eea");
-    } else 
-    {
-        property_set("ro.product.name", "judypn_lao_com");
-        property_set("ro.product.vendor.name", "judypn_lao_com");
-    }*/
 
-    property_set("ro.product.model", device);
-    property_set("ro.odm.system.model", device);
-    property_set("ro.product.system.model", device);
-    property_set("ro.vendor.product.model", device);
+    property_set("ro.product.model", model);
+    property_set("ro.product.odm.model", model);
+    property_set("ro.product.product.model", model);
+    property_set("ro.product.system.model", model);
+    property_set("ro.product.vendor.model", model);
 }
 
 void vendor_load_properties() {
