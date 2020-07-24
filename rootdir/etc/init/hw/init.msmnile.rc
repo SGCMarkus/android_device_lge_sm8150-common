@@ -13,7 +13,7 @@ on fs
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
     wait /dev/block/bootdevice
-    mount_all /vendor/etc/fstab.${ro.hardware}
+    mount_all /vendor/etc/fstab.${ro.hardware} --early
 
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
@@ -35,6 +35,11 @@ on fs
     # We use reservedsize option in fstab instead of tune2fs. No more use tune2fs
     # Executing tune2fs to reserve some region in /data.(40MB)
     # exec /system/bin/tune2fs -u system -r 10240 /dev/block/bootdevice/by-name/userdata
+
+on late-fs
+    wait_for_prop hwservicemanager.ready true
+     exec_start wait_for_keymaster
+    mount_all /vendor/etc/fstab.${ro.hardware} --late
 
 on post-fs
     chown system system /vendor/mpt

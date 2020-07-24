@@ -129,6 +129,9 @@ TARGET_PROVIDES_KEYMASTER := true
 # Media
 TARGET_PROVIDES_LIBPLATFORMCONFIG := true
 
+# Metadata
+BOARD_USES_METADATA_PARTITION := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE += androidboot.memcg=1
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
