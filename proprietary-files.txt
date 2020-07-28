@@ -1,3 +1,5 @@
+# All unpinned blobs below are extracted from LM-V500EM 20i
+
 # ADSP
 vendor/bin/adsprpcd
 vendor/bin/chre
@@ -26,7 +28,7 @@ vendor/lib/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
 vendor/lib64/com.qualcomm.qti.ant@1.0.so
 
-# Audio
+# Audio - from LM-V500EM 10q
 vendor/lib64/hw/audio.primary.msmnile.so|824ad9a116e787146bd68182c4a936ba7f8bcfe0
 vendor/lib64/libacdb-fts.so|fe092876daa3b3f442c9c0be6250e1b75365bb13
 vendor/lib64/libacdbloader.so|aa6c3b363267fa3fbd9bc2475cebee9ceb40170f
@@ -51,7 +53,7 @@ vendor/lib/libaudioparsers.so|a640095197fa5cf891444eb49876d908cce8334c
 vendor/lib/libqtigef.so|ba992fa44373b7ce588f178e793b1c9b7c2cd86f
 vendor/lib/libtinycompress_vendor.so|2072c4379eb58ff6095ca826a9f89ac3d8b17456
 
-# Audio FX modules
+# Audio FX modules - from LM-V500EM 10q
 etc/permissions/audiosphere.xml
 framework/audiosphere.jar
 vendor/lib64/soundfx/libasphere.so|f56e8188680851b6f93557c317116245e17ad592
@@ -64,7 +66,7 @@ vendor/lib/soundfx/libqcreverb.so|dd897a7a70b965ab06dbb777b4173ac46f6bab50
 vendor/lib/soundfx/libqcvirt.so|327362acfa2168c8b773824d2f3eaddd46c00216
 vendor/lib/soundfx/libshoebox.so|94404cb05418a7183986f21b43c4f178586ca272
 
-# Bluetooth
+# Bluetooth - from LM-V500EM 10q
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|d0bfcd8ff942524ea980be91a49115050200a821
 vendor/bin/athdiag|192190f92fc2aa366bb5304ef7f0fb09568f4131
 vendor/bin/btnvtool|53fd4125af28c874ef726d0680054a468f51fef1
@@ -506,7 +508,7 @@ vendor/lib/vendor.qti.latency@2.0.so
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
 vendor/lib64/vendor.qti.latency@2.0.so
 
-# Listen
+# Listen - from LM-V500EM 10q
 vendor/lib/hw/sound_trigger.primary.msmnile.so|72f83f734aa2bd619e705ab49e1b72f20c3da4ef
 vendor/lib/libadpcmdec.so|709c018d5d949ba0dbd0895d946f842b0b96803f
 vendor/lib/libcapiv2svacnn.so|d3f66d5f4c2a27379bfeed9c855ccffad02e10d5
