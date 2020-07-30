@@ -20,16 +20,4 @@ on chargerlogo_exec
     chmod 0666 /mnt/vendor/persist-lg/dqsl/charging_count
     chown system system /mnt/vendor/persist-lg/dqsl/charging_level
     chmod 0666 /mnt/vendor/persist-lg/dqsl/charging_level
-    exec u:r:chargerlogo:s0 -- /vendor/bin/chargerlogo
-    trigger chargerlogo_after
 
-# WA chargerlogo kill
-on chargerlogo_after
-    exec u:r:chargerlogo:s0 -- /vendor/bin/chargerlogo
-    trigger chargerlogo_after
-
-service vendor.lge-chargerlogo-sh /vendor/bin/vendor.lge.power.chglogo.sh
-    class core
-    user root
-    oneshot
-    disabled

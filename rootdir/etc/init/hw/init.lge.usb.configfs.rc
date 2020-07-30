@@ -940,14 +940,6 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adpl,adb && property:
     setprop sys.usb.state ${sys.usb.config}
 
 ################################################################################
-# VZW
-################################################################################
-
-on property:sys.boot_completed=1 && property:ro.vendor.lge.build.target_operator=VZW
-    write /config/usb_gadget/g1/functions/mass_storage.0/lun.0/cdrom 1
-    write /config/usb_gadget/g1/functions/mass_storage.0/lun.0/file /vendor/etc/usbautorun.iso
-
-################################################################################
 # FACTORY
 ################################################################################
 

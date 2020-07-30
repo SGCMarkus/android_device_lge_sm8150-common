@@ -47,25 +47,11 @@ on init
 on early-fs
     start vold
 
-on fs
-    start hwservicemanager
-#    mount_all /vendor/etc/fstab.qcom --early
-#    chown root system /mnt/vendor/persist
-#    chmod 0771 /mnt/vendor/persist
-#    restorecon_recursive /mnt/vendor/persist
-#    mkdir /mnt/vendor/persist/data 0700 system system
-
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
-    start vendor.spdaemon
     start vendor.sec_nvm
-
-#on late-fs
-#    wait_for_prop hwservicemanager.ready true
-#     exec_start wait_for_keymaster
-#    mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
@@ -75,10 +61,6 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
     mkdir /data/vendor/nnhal 0700 system system
-	
-# NFC: create data/nfc for nv storage
-    mkdir /data/nfc 0770 nfc nfc
-    mkdir /data/nfc/param 0770 nfc nfc
 
 on early-boot
     start vendor.sensors
@@ -107,7 +89,6 @@ on boot
     chmod 0770 /data/vendor/netmgr/recovery
     write /data/vendor/netmgr/recovery/recovery_info ""
     chown radio radio /data/vendor/netmgr/recovery/recovery_info
-
 
     chown nfc nfc /dev/pn547
     chmod 0660 /dev/pn547
@@ -175,12 +156,6 @@ on charger
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
-service vendor.spdaemon /vendor/bin/spdaemon
-    class core
-    user system
-    group system
-    shutdown critical
-
 service vendor.sec_nvm /vendor/bin/sec_nvm
     class core
     user system
@@ -212,11 +187,6 @@ service vendor.cdsprpcd /vendor/bin/cdsprpcd
    group system wakelock
    capabilities BLOCK_SUSPEND
 
-#service vendor.lowi /vendor/bin/sscrpcd
-#   class core
-#   user system
-#   group system
-
 # LGE_ModemBSP_S, Added shutdown critical to prevent kill before esoc shutdown completed.
 service vendor.mdm_helper /vendor/bin/mdm_helper
     class core
@@ -229,16 +199,6 @@ service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
     class main
     oneshot
 
-
-on property:vold.decrypt=trigger_restart_framework
-#    start cnss_diag
-
-#service cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
-#    class main
-#    user system
-#    group system wifi inet sdcard_rw media_rw diag
-#    oneshot
-
 service vendor.energy-awareness /vendor/bin/energy-awareness
     class main
     user system
@@ -249,8 +209,3 @@ service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
     class main
     user root
     group system wakelock
-#[LGE_GNSS][S] LGP_GNSS_0256, LGP_GNSS_FRAMEWORK_DISABLE_TLOC_DAEMON, 190116, youngtae88.kim
-#service vendor.tlocd /vendor/bin/tloc_daemon
-#    class late_start
-#    user system
-#    group drmrpc gps net_raw

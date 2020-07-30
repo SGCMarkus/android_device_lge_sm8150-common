@@ -11,10 +11,6 @@ on boot
 #/* 2013-06-24, juhyup.kim@lge.com LGP_DATA_APN_BACKUP [START] */
     mkdir /mnt/vendor/persist-lg/lgdata 0775 radio radio
 #/* 2013-06-24, juhyup.kim@lge.com LGP_DATA_APN_BACKUP [END] */
-#/* 2016-03-02 protocol-iwlan@lge.com LGP_DATA_IWLAN [START] */
-    mkdir /data/misc/setkey 0666 root system
-    restorecon /data/misc/setkey
-#/* 2016-03-02 protocol-iwlan@lge.com LGP_DATA_IWLAN [END] */
 
 # START touch_driver
 	chown system system /sys/devices/virtual/input/lge_touch/incoming_call
