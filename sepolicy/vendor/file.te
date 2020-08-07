@@ -24,3 +24,4 @@ type sns_file, file_type;
 type sysfs_veneer, sysfs_type, fs_type;
 type sysfs_qnovo, sysfs_type, fs_type;
 type sysfs_boot_cdsp, sysfs_type, fs_type;
+type sysfs_tap2wake, sysfs_type, fs_type;

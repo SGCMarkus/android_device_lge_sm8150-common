@@ -73,6 +73,11 @@ on boot
 	chmod 664 /sys/devices/virtual/input/lge_touch/secure_touch_devinfo
 # End secure_touch
 
+# START tap2wake
+    chown system system /sys/devices/virtual/input/lge_touch/tap2wake
+    chmod 664 /sys/devices/virtual/input/lge_touch/tap2wake
+# END tap2wake
+
 # CoverDisplay
 	chown system system /sys/devices/platform/soc/a80000.spi/spi_master/spi1/spi1.2/fw
 	chmod 664 /sys/devices/platform/soc/a80000.spi/spi_master/spi1/spi1.2/fw

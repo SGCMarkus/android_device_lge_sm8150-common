@@ -170,6 +170,7 @@ PRODUCT_VENDOR_MOVE_ENABLED := true
 # Power
 TARGET_RPM_MASTER_STAT := "/sys/power/rpmh_stats/master_stats"
 TARGET_WLAN_POWER_STAT := "/sys/kernel/wlan/power_stats"
+TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
