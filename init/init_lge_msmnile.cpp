@@ -102,11 +102,11 @@ void init_target_properties()
         property_set("persist.radio.multisim.config", "dsds");
     }
 
-    property_set("ro.product.model", model);
-    property_set("ro.product.odm.model", model);
-    property_set("ro.product.product.model", model);
-    property_set("ro.product.system.model", model);
-    property_set("ro.product.vendor.model", model);
+    property_override("ro.product.model", model);
+    property_override("ro.product.odm.model", model);
+    property_override("ro.product.product.model", model);
+    property_override("ro.product.system.model", model);
+    property_override("ro.product.vendor.model", model);
 }
 
 void vendor_load_properties() {
