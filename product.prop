@@ -1,0 +1,6 @@
+#
+# product props for lge sm8150-common
+#
+
+# Voice assistant
+ro.opa.eligible_device=true
