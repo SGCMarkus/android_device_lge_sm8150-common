@@ -17,7 +17,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter flashlmdd alphalm alphaplus betalm mh2lm,$(TARGET_DEVICE)),)
+ifneq ($(filter flashlmdd flashlm alphalm alphaplus betalm mh2lm,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
