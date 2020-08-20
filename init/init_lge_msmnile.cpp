@@ -30,6 +30,7 @@
  */
 
 #include <fcntl.h>
+#include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -70,9 +71,12 @@ void property_override(const std::string& name, const std::string& value)
 
 void init_target_properties()
 {
+    //std::ifstream cust_prop_stream;
     std::string model;
     std::string product_name;
     std::string cmdline;
+    std::string cust_prop_path;
+    std::string cust_prop_line;
     bool unknownModel = true;
     bool dualSim = false;
 
@@ -92,13 +96,27 @@ void init_target_properties()
         }
     }
 
-    if(unknownModel)
-    {
+    cust_prop_path = "/product/OP/cust.prop";
+    std::ifstream cust_prop_stream(cust_prop_path, std::ifstream::in);
+
+    while(std::getline(cust_prop_stream, cust_prop_line)) {
+        std::vector<std::string> pieces = android::base::Split(cust_prop_line, "=");
+        if (pieces.size() == 2) {
+            if(pieces[0].compare("ro.vendor.lge.build.target_region") == 0 ||
+               pieces[0].compare("ro.vendor.lge.build.target_operator") == 0 ||
+               pieces[0].compare("ro.vendor.lge.build.target_country") == 0 ||
+               pieces[0].compare("telephony.lteOnCdmaDevice") == 0)
+            {
+                property_override(pieces[0], pieces[1]);
+            }
+        }
+    }
+
+    if(unknownModel) {
         model = "UNKNOWN";
     }
 
-    if(dualSim)
-    {
+    if(dualSim) {
         property_set("persist.radio.multisim.config", "dsds");
     }
 
