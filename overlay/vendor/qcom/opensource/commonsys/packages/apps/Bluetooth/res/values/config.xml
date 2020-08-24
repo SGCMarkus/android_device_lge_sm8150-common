@@ -27,7 +27,8 @@
      IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <resources>
-    <bool name="profile_supported_avrcp_controller">false</bool>
-    <bool name="profile_supported_hid_device">false</bool>
+    <bool name="profile_supported_avrcp_controller">true</bool>
+    <bool name="profile_supported_hid_device">true</bool>
+    <bool name="profile_supported_hid_host">true</bool>
     <bool name="profile_supported_ba">true</bool>
 </resources>
