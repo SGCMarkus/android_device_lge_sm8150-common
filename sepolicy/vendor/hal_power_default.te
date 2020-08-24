@@ -1,2 +1,2 @@
-allow hal_power_default sysfs_tap2wake:dir search;
-allow hal_power_default sysfs_tap2wake:file w_file_perms;
+allow hal_power_default sysfs_lge_touch:dir search;
+allow hal_power_default sysfs_lge_touch:file w_file_perms;

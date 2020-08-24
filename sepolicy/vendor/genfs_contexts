@@ -23,7 +23,7 @@ genfscon sysfs /devices/virtual/panel/img_tune/hdr_mode                 u:object
 genfscon sysfs /devices/platform/soc/5c00000.qcom,ssc/subsys2/state    u:object_r:sysfs_sensors:s0
 
 # Tap2wake
-genfscon sysfs /devices/virtual/input/lge_touch                        u:object_r:sysfs_tap2wake:s0
+genfscon sysfs /devices/virtual/input/lge_touch                        u:object_r:sysfs_lge_touch:s0
 
 # Veneer
 genfscon sysfs /devices/platform/vendor/vendor:lge-veneer-psy/power_supply/veneer/type          u:object_r:sysfs_veneer:s0
