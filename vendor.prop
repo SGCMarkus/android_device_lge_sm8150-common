@@ -79,10 +79,8 @@ ro.vendor.bluetooth.wipower=false
 vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
-ro.vendor.lge.aux.camera=2
 ro.vendor.lge.dev.fmode=0
 ro.vendor.lge.dev.fmode_exif=0
-ro.vendor.lge.physical.camera=5
 vendor.lge.faceprint.inform.camera=0
 vendor.lge.faceprint.use.camera=0
 
