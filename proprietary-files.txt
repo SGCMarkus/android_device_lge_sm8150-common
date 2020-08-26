@@ -773,6 +773,20 @@ vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
+# Property
+lib/libLgeProductProperties.so
+lib64/libLgeProductProperties.so
+product/lib64/vendor.lge.hardware.property@1.0.so
+product/lib64/vendor.lge.hardware.property@2.0.so
+product/lib/vendor.lge.hardware.property@1.0.so
+product/lib/vendor.lge.hardware.property@2.0.so
+vendor/bin/hw/vendor.lge.hardware.property@2.0-service
+vendor/etc/init/vendor.lge.hardware.property@2.0-service.rc
+vendor/lib64/hw/vendor.lge.hardware.property@2.0-impl.so
+vendor/lib64/vendor.lge.hardware.property@2.0.so
+vendor/lib/hw/vendor.lge.hardware.property@2.0-impl.so
+vendor/lib/vendor.lge.hardware.property@2.0.so
+
 # Qualcomm Display Utils
 product/lib/vendor.qti.hardware.qdutils_disp@1.0.so
 product/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
@@ -1092,6 +1106,75 @@ vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib64/vendor.qti.imsrtpservice@2.0.so
 vendor/lib64/vendor.qti.imsrtpservice@2.1.so
 
+# LG - IMS - pinned are taken from Q910
+-framework/lg-framework.jar|5eab5e68c775f57ba664f4585dc1106562930ad3
+lib/libpcas.so
+lib/libLgeProductFeatures2.so
+lib/libpatchcodeid.so
+lib64/libpcas.so
+lib64/libLgeProductFeatures2.so
+lib64/libpatchcodeid.so
+-product/priv-app/GBAService/GBAService.apk
+-product/priv-app/LGIms/LGIms.apk|0071bdc4f43b8d3dfb13009df76fb6e8333aa43a
+product/bin/imsipsecclient
+product/bin/imsipsecstarter
+product/bin/ipsecd
+product/etc/init/init.lge.ims.rc:vendor/etc/init/init.lge.ims.rc
+product/etc/init/init.lge.iwlan.rc:vendor/etc/init/init.lge.iwlan.rc
+product/etc/permissions/com.lge.ims.media.evs.xml|363d3d49a758069b9866429f114e3a9f86f082b0
+product/etc/permissions/lgims_permissions.xml|cabaa6531c227a2538d5f34e11903610c53b93f0
+product/etc/permissions/privapp-permissions-lgims.xml|d047239e5e8bb56a48802b412daa0e0a30653bbe
+product/etc/permissions/UimGba.xml
+product/etc/permissions/UimGbaManager.xml
+product/etc/sysconfig/lgims_whitelist.xml|916b98c955ce6635e46bff5627865a835221ad30
+product/framework/uimgbalibrary.jar
+product/framework/uimgbamanagerlibrary.jar
+product/lib64/libimscamerajni.lge.so
+product/lib64/lib-imscamera.so|0489395e07ed1e547ee11572572a9dfac5e599f3
+product/lib64/libims.lge.so
+product/lib64/libimsmedia_jni.so
+product/lib64/libimsmmpf.lge.so
+product/lib64/lib-imsvideocodec.so|2f2796482913c8e8a853e555faca8606c1625cb1
+product/lib64/lib-imsvtextutils.so
+product/lib64/lib-imsvt.so
+product/lib64/lib-imsvtutils.so
+product/lib64/libimswms.lge.so
+product/lib/lib-imscamera.so|1cf6d797f41d87dec32f57c2a7fca32e3b9edb56
+product/lib/libimsmedia_jni.so
+product/lib/lib-imsvideocodec.so|8fdf8369de777a4e6c95fed03296c1061008a7c9
+product/lib/lib-imsvtextutils.so
+product/lib/lib-imsvt.so
+product/lib/lib-imsvtutils.so
+vendor/lib64/lib-imscmservice.so|ee1f88673ccdb9e94e96b9de8a808e6f11e624ed
+vendor/lib64/lib-imsdpl.so|f1cb400d925e2317c8d3b5d448619099f1ab9781
+vendor/lib64/lib-imsqimf.so|42298d6194c3918842a8a192801898072eabcecb
+vendor/lib64/lib-imsrcsbaseimpl.so|cad89845101317224c211947ff912357856edc35
+vendor/lib64/lib-imsrcs-v2.so|5f71f9056b90ffdafaa0ff0a6f3cb6a7d2572d1a
+vendor/lib64/lib-imsvtcore.so|5cf57c517b28daa9ead0beec8100f0524e046274
+vendor/lib64/lib-imsxml.so|d6e7a7d7a4ce7f0b1508475e20bd4840847b4d98
+vendor/lib/lib-imscmservice.so|bd04d266872f7a41226e6d72185b06e27f6c690e
+vendor/lib/lib-imsdpl.so|797d335d36a3510cfb437116c43a9f0d57a73930
+vendor/lib/lib-imsqimf.so|0237d639da28e384b8f74fd8a2f011a12913e6b6
+vendor/lib/lib-imsrcsbaseimpl.so|766329c47b7db481df450785a7ba1e5110c2c4de
+vendor/lib/lib-imsrcs-v2.so|109aabd0a042e484d72327083af64274542cf705
+vendor/lib/lib-imsvtcore.so|7cad23cd70c458610c205c693297dee79fa400cf
+vendor/lib/lib-imsxml.so|ab1b357ccf0a20e832deefcf5725c727a4e209bf
+
+# RIL - Soi
+product/framework/vendor.lge.hardware.soi-V1.0-java.jar
+product/lib64/vendor.lge.hardware.soi@1.0.so
+product/lib/vendor.lge.hardware.soi@1.0.so
+vendor/bin/hw/vendor.lge.hardware.soi@1.0-service
+vendor/etc/init/vendor.lge.hardware.soi@1.0-service.rc
+vendor/lib64/hw/vendor.lge.hardware.soi@1.0-impl.so
+vendor/lib64/liblgesoi-impl.so
+vendor/lib64/libqmi_wms_client_helper.so
+vendor/lib64/vendor.lge.hardware.soi@1.0.so
+vendor/lib/hw/vendor.lge.hardware.soi@1.0-impl.so
+vendor/lib/liblgesoi-impl.so
+vendor/lib/libqmi_wms_client_helper.so
+vendor/lib/vendor.lge.hardware.soi@1.0.so
+
 # RIL - VSS
 vendor/lib/libvss_common_idl.so
 vendor/lib/libvss_common_iface.so
@@ -1115,6 +1198,7 @@ vendor/lib64/libvss_resim_idl.so
 vendor/lib64/libvss_resim_iface.so
 
 # RIL - VSS IMS
+product/framework/vendor.lge.hardware.vss_ims-V1.0-java.jar
 product/lib/vendor.lge.hardware.vss_ims@1.0.so
 product/lib64/vendor.lge.hardware.vss_ims@1.0.so
 vendor/bin/hw/vendor.lge.hardware.vss_ims@1.0-service

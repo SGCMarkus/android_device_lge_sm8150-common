@@ -34,6 +34,10 @@ ro.hwui.text_small_cache_height=1024
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
 
+# IMS
+persist.product.lge.ims.volte_open=1
+persist.product.lge.data.iwlan=1
+
 # Media
 av.offload.enable=true
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml

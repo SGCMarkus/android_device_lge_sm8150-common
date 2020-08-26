@@ -49,7 +49,7 @@ while [ "$1" != "" ]; do
 done
 
 if [ -z "$SRC" ]; then
-    SRC=adb
+    SRC=/home/markus/V50/V500EM20k/system
 
 fi
 

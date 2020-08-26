@@ -135,6 +135,13 @@ ro.opengles.version=196610
 vendor.display.enable_default_color_mode=1
 vendor.gralloc.disable_ubwc=0
 
+# IMS
+ro.vendor.lge.feature.ims=true
+ro.vendor.lge.feature.sms_ims=true
+#ro.vendor.lge.swversion_svn=29
+#ro.vendor.lge.feature.laop=true
+#ro.vendor.lge.laop=1
+
 # Keystore
 ro.hardware.keystore_desede=true
 
