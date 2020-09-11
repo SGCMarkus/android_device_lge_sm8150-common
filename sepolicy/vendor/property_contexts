@@ -52,6 +52,8 @@ persist.vendor.lge.service.chg_mode                 u:object_r:vendor_qni_prop:s
 persist.vendor.lge.service.kernel.enable            u:object_r:vendor_qni_prop:s0
 
 # RIL
+persist.data_netmgrd_mtu                            u:object_r:vendor_radio_prop:s0
+vendor.lge.data.net.iwlan.                          u:object_r:vendor_radio_prop:s0
 vendor.lge.ril.ecclist.withcat                      u:object_r:exported_radio_prop:s0
 vendor.lge.ril.modembsp.bootup                      u:object_r:exported_radio_prop:s0
 vendor.lge.ril.sim_inserted.slot1                   u:object_r:exported_radio_prop:s0
