@@ -69,7 +69,4 @@
 
     <!-- Boolean indicating whether framework needs to set the tx power limit for meeting SAR requirements -->
     <bool translatable="false" name="config_wifi_framework_enable_sar_tx_power_limit">true</bool>
-
-    <!-- True if the firmware supports Wi-Fi link probing -->
-    <bool translatable="false" name="config_wifi_link_probing_supported">true</bool>
 </resources>
