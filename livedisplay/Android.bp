@@ -34,6 +34,7 @@ cc_defaults {
 
 cc_binary {
     name: "vendor.lineage.livedisplay@2.0-service.lge_msmnile",
+    vintf_fragments: ["vendor.lineage.livedisplay@2.0-service.lge_msmnile.xml"],
     init_rc: ["vendor.lineage.livedisplay@2.0-service.lge_msmnile.rc"],
     defaults: ["livedisplay_lge_msmnile_defaults"],
     vendor: true,
