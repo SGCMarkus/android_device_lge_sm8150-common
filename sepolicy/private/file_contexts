@@ -1,2 +1,2 @@
 # HALs
-/system/bin/dpm                                 u:object_r:dpmd_exec:s0
+/system/bin/dpm                                 u:object_r:vendor_dpmd_exec:s0

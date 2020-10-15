@@ -1,1 +1,1 @@
-allow rfs_access persist_file:dir search;
+allow vendor_rfs_access vendor_persist_file:dir search;
