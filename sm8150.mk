@@ -211,7 +211,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.lge_sm8150
+    android.hardware.biometrics.fingerprint@2.1-service.lge_msmnile
 
 # FM packages
 PRODUCT_PACKAGES += \
