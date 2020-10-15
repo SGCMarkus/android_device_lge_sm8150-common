@@ -497,7 +497,7 @@ PRODUCT_PACKAGES += \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
     wifi_cli \
-    WifiOverlay \
+    WifiOverlay.lge_sm8150 \
     wpa_supplicant \
     wpa_supplicant.conf
 
