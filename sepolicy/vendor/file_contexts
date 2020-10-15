@@ -10,12 +10,12 @@
 /dev/pn547                u:object_r:nfc_device:s0
 
 # Init
-/(vendor|system/vendor)/bin/init\.lge\.usb\.default\.sh                                                 u:object_r:qti_init_shell_exec:s0
-/(vendor|system/vendor)/bin/init\.lge\.usb\.lao\.sh                                                     u:object_r:qti_init_shell_exec:s0
-/(vendor|system/vendor)/bin/init\.lge\.usb\.sh                                                          u:object_r:qti_init_shell_exec:s0
-/(vendor|system/vendor)/bin/init\.lge\.zramswap\.sh                                                     u:object_r:qti_init_shell_exec:s0
-/(vendor|system/vendor)/bin/init\.qcom\.devstart\.sh                                                    u:object_r:qti_init_shell_exec:s0
-/(vendor|system/vendor)/bin/init\.qti\.chg_policy\.sh                                                   u:object_r:qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.lge\.usb\.default\.sh                                                 u:object_r:vendor_qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.lge\.usb\.lao\.sh                                                     u:object_r:vendor_qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.lge\.usb\.sh                                                          u:object_r:vendor_qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.lge\.zramswap\.sh                                                     u:object_r:vendor_qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.qcom\.devstart\.sh                                                    u:object_r:vendor_qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.qti\.chg_policy\.sh                                                   u:object_r:vendor_qti_init_shell_exec:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.lge_msmnile                       u:object_r:hal_light_default_exec:s0
