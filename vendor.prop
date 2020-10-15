@@ -88,6 +88,7 @@ vendor.lge.faceprint.use.camera=0
 persist.vendor.ctm.disallowed=1
 persist.vendor.lge.service.chg_mode=LGE,QNOVO
 persist.vendor.tb.disallowed=1
+ro.charger.enable_suspend=true
 
 # Crypto
 ro.crypto.allow_encrypt_override=true
