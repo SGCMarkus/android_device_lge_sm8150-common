@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-BUILD_BROKEN_DUP_RULES := true
-
 COMMON_PATH := device/lge/sm8150-common
 
 # inherit from common lge
@@ -72,6 +70,10 @@ USE_XML_AUDIO_POLICY_CONF := 1
 BOARD_HAVE_BLUETOOTH_QCOM := true
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
 TARGET_USE_QTI_BT_STACK := true
+
+# Build
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
