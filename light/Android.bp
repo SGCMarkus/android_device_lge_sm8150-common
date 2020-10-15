@@ -14,11 +14,12 @@
 // limitations under the License.
 
 cc_binary {
-    relative_install_path: "hw",
-    defaults: ["hidl_defaults"],
     name: "android.hardware.light@2.0-service.lge_msmnile",
-    proprietary: true,
+    vintf_fragments: ["android.hardware.light@2.0-service.lge_msmnile.xml"],
     init_rc: ["android.hardware.light@2.0-service.lge_msmnile.rc"],
+    defaults: ["hidl_defaults"],
+    relative_install_path: "hw",
+    proprietary: true,
     srcs: ["service.cpp", "Light.cpp"],
     shared_libs: [
         "libbase",
