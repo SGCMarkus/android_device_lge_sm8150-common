@@ -20,7 +20,7 @@ genfscon sysfs /devices/virtual/panel/img_tune/rgb_tune                 u:object
 genfscon sysfs /devices/virtual/panel/img_tune/hdr_mode                 u:object_r:sysfs_livedisplay_tuneable:s0
 
 # Sensors
-genfscon sysfs /devices/platform/soc/5c00000.qcom,ssc/subsys2/state    u:object_r:sysfs_sensors:s0
+genfscon sysfs /devices/platform/soc/5c00000.qcom,ssc/subsys2/state    u:object_r:vendor_sysfs_sensors:s0
 
 # Tap2wake
 genfscon sysfs /devices/virtual/input/lge_touch                        u:object_r:sysfs_lge_touch:s0

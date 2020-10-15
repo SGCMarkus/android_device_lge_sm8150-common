@@ -1,1 +1,1 @@
-allow time_daemon persist_file:dir search;
+allow vendor_time_daemon vendor_persist_file:dir search;

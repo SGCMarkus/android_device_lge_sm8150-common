@@ -1,1 +1,1 @@
-allow hvdcp persist_file:dir search;
+allow vendor_hvdcp vendor_persist_file:dir search;

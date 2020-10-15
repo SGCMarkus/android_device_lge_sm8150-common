@@ -3,7 +3,7 @@ allow vendor_init tmpfs:dir create_dir_perms;
 set_prop(vendor_init, audio_prop)
 set_prop(vendor_init, vendor_audio_prop)
 set_prop(vendor_init, vendor_camera_prop)
-set_prop(vendor_init, persist_dpm_prop)
+set_prop(vendor_init, vendor_persist_dpm_prop)
 set_prop(vendor_init, vendor_lge_misc_prop)
 set_prop(vendor_init, vendor_qni_prop)
 set_prop(vendor_init, vendor_sensors_prop)
