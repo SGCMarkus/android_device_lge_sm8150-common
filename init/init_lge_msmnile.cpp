@@ -50,7 +50,6 @@
 
 using android::base::Trim;
 using android::base::GetProperty;
-using android::init::property_set;
 
 void property_override(const std::string& name, const std::string& value)
 {
@@ -117,7 +116,7 @@ void init_target_properties()
     }
 
     if(dualSim) {
-        property_set("persist.radio.multisim.config", "dsds");
+        property_override("persist.radio.multisim.config", "dsds");
     }
 
     property_override("ro.product.model", model);
