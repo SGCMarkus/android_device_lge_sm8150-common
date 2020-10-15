@@ -160,16 +160,6 @@
         <fqname>@2.0::IAllocator/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.graphics.composer</name>
-        <transport>hwbinder</transport>
-        <version>2.3</version>
-        <interface>
-            <name>IComposer</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@2.3::IComposer/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.graphics.mapper</name>
         <transport arch="32+64">passthrough</transport>
         <version>2.1</version>
