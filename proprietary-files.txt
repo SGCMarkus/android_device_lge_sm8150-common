@@ -345,12 +345,12 @@ framework/tcmclient.jar
 product/lib/com.qualcomm.qti.dpm.api@1.0.so
 product/lib/libdpmctmgr.so
 product/lib/libdpmfdmgr.so
-product/lib/libdpmframework.so
+product/lib/libdpmframework.so|9756ad920d83f86e03a888bc870b485c19548c3a
 product/lib/libdpmtcm.so
 product/lib64/com.qualcomm.qti.dpm.api@1.0.so
 product/lib64/libdpmctmgr.so
 product/lib64/libdpmfdmgr.so
-product/lib64/libdpmframework.so
+product/lib64/libdpmframework.so|b663cbacd89b4153b6ffe873fa3e4c2966d1823c
 product/lib64/libdpmtcm.so
 -product/priv-app/dpmserviceapp/dpmserviceapp.apk
 vendor/bin/dpmQmiMgr
