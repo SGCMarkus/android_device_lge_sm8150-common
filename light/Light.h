@@ -74,6 +74,8 @@ class Light : public ILight {
 
     std::map<Type, std::function<void(const LightState&)>> mLights;
 
+    int mMaxBrightness = 255;
+    int mMaxBrightnessEx = 255;
 };
 
 }  // namespace implementation

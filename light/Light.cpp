@@ -109,17 +109,15 @@ void Light::handleAttention(const LightState& state) {
 }
 
 void Light::handleBacklight(const LightState& state) {
-    int maxBrightness = get(BL MAX_BRIGHTNESS, -1);
-    int maxBrightnessEx = get(BL_EX MAX_BRIGHTNESS, -1);
-    if (maxBrightness < 0) {
-        maxBrightness = 255;
-    }
-    if (maxBrightnessEx < 0) {
-        maxBrightnessEx = 255;
-    }
+    int brightness, brightnessEx;
     int sentBrightness = rgbToBrightness(state);
-    int brightness = sentBrightness * maxBrightness / 255;
-    int brightnessEx = sentBrightness * maxBrightnessEx / 255;
+    if(sentBrightness < 35) {
+        brightness = sentBrightness * 2;
+        brightnessEx = sentBrightness * 2;
+    } else {
+        brightness = sentBrightness * mMaxBrightness / 255;
+        brightnessEx = sentBrightness * mMaxBrightnessEx / 255;
+    }
     set(BL BRIGHTNESS, brightness);
     set(BL_EX BRIGHTNESS, brightnessEx);
 }
@@ -148,7 +146,15 @@ Light::Light(bool hasBacklight, bool hasBlinkPattern, bool hasOnOffPattern) {
         mLights.emplace(Type::BATTERY, batteryFn);
         mLights.emplace(Type::NOTIFICATIONS, notifFn);
     }
-    
+
+    mMaxBrightness = get(BL MAX_BRIGHTNESS, -1);
+    mMaxBrightnessEx = get(BL_EX MAX_BRIGHTNESS, -1);
+    if (mMaxBrightness < 0) {
+        mMaxBrightness = 255;
+    }
+    if (mMaxBrightnessEx < 0) {
+        mMaxBrightnessEx = 255;
+    }
 }
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
