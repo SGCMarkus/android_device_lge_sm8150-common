@@ -496,6 +496,7 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
+    TetheringConfigOverlay.lge_sm8150 \
     wifi_cli \
     WifiOverlay.lge_sm8150 \
     wpa_supplicant \
