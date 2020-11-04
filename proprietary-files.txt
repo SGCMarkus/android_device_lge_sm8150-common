@@ -1012,8 +1012,8 @@ vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
 vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 
-# Telephony (qti-telephony-common) - from DRG - QKQ1.190828.002
-product/framework/qti-telephony-common.jar:system_ext/framework/qti-telephony-common.jar|b4d187700f279cdbd40e74b4c3be4504f10d8b29
+# Telephony (qti-telephony-common) - from repo8 - cmi-qssi-user-11-RKQ1.200710.002-V12.1.2.0.RJACNXM-release-keys
+product/framework/qti-telephony-common.jar:system_ext/framework/qti-telephony-common.jar|78f600ef38a46e592684ba30c615b1aea7dcc9a4
 
 # RIL - IMS
 etc/permissions/com.qualcomm.qti.imscmservice.xml
