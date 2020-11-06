@@ -91,6 +91,8 @@ void init_target_properties()
             } else if(pieces[0].compare("androidboot.vendor.lge.sim_num") == 0 && pieces[1].compare("2") == 0)
             {
                 dualSim = true;
+            } else if(pieces[0].compare("androidboot.vendor.lge.hw.revision") == 0) {
+                property_override("ro.boot.hardware.revision", pieces[1]);
             }
         }
     }
