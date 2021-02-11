@@ -387,6 +387,9 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/permissions/product_privapp-permissions-ims.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-ims.xml \
     $(COMMON_PATH)/permissions/product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hotword-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/hotword-hiddenapi-package-whitelist.xml
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
