@@ -9,6 +9,11 @@ audio.offload.buffer.size.kb=32
 audio.offload.gapless.enabled=true
 
 # Bluetooth
+persist.bluetooth.a2dp_offload.disabled=false
+persist.vendor.bt.a2dp.aac_whitelist=false
+persist.vendor.btstack.enable.twsplus=true
+persist.vendor.btstack.enable.twsplussho=true
+ro.bluetooth.a2dp_offload.supported=true
 ro.bluetooth.library_name=libbluetooth_qti.so
 vendor.bluetooth.soc=cherokee
 
