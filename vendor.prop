@@ -25,7 +25,6 @@ persist.vendor.audio.fluence.voicecall=true
 persist.vendor.audio.fluence.voicerec=false
 persist.vendor.audio.ras.enabled=false
 persist.vendor.audio.speaker.prot.enable=false
-persist.vendor.lge.3rd.speaker.prot.enable=on
 ro.qc.sdk.audio.fluencetype=none
 ro.qc.sdk.audio.ssr=false
 ro.vendor.audio.sdk.fluencetype=nxp
