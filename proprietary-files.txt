@@ -714,16 +714,6 @@ vendor/etc/init/android.hardware.neuralnetworks@1.2-service-qti.rc
 vendor/lib64/libhexagon_nn_stub.so
 vendor/lib64/libhta_hexagon_runtime.so
 
-# NFC
-vendor/bin/hw/android.hardware.nfc@1.2-service-pn55x
-vendor/etc/init/android.hardware.nfc@1.2-service-pn55x.rc
-vendor/lib64/libLGnfc_config_vendor.so
-vendor/lib64/nfc_lg.pn55x.so
-vendor/lib64/vendor.nxp.nxpnfc@1.0.so
-vendor/lib/libLGnfc_config_vendor.so
-vendor/lib/nfc_lg.pn55x.so
-vendor/lib/vendor.nxp.nxpnfc@1.0.so
-
 # Perf
 -vendor/app/pasrservice/pasrservice.apk
 vendor/bin/hw/vendor.qti.hardware.perf@2.0-service
