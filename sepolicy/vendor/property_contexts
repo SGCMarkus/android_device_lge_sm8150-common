@@ -60,3 +60,7 @@ vendor.lge.ril.sim_inserted.slot1                   u:object_r:exported_radio_pr
 vendor.lge.ril.sim_inserted.slot2                   u:object_r:exported_radio_prop:s0
 vendor.lge.ril.vss.common_init                      u:object_r:exported_radio_prop:s0
 vendor.lge.ril.vss.nv_init                          u:object_r:exported_radio_prop:s0
+
+# USB
+ro.vendor.lge.usb.diag_count                        u:object_r:vendor_lge_usb_prop:s0
+vendor.lge.usb.state                                u:object_r:vendor_lge_usb_prop:s0

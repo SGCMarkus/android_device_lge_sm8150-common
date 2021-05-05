@@ -1,3 +1,4 @@
 allow vendor_qti_init_shell sysfs_boot_cdsp:file rw_file_perms;
 
 get_prop(vendor_qti_init_shell, vendor_lge_misc_prop)
+get_prop(vendor_qti_init_shell, vendor_lge_usb_prop)
