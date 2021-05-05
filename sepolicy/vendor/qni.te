@@ -15,6 +15,7 @@ allow qni kmsg_device:chr_file rw_file_perms;
 
 allow qni qni:netlink_kobject_uevent_socket { read create setopt bind };
 
-#allow qni qni:capability { block_suspend net_admin };
-
 set_prop(qni, vendor_qni_prop)
+
+allow qni self:capability { fsetid setuid net_admin };
+allow qni self:capability2 { block_suspend };

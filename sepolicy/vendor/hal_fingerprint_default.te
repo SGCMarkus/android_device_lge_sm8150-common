@@ -7,3 +7,5 @@
 allow hal_fingerprint_default fingerprintd_device:chr_file rw_file_perms;
 allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
 allow hal_fingerprint_default hal_fingerprint_default:netlink_socket { read write bind create };
+
+binder_call(hal_fingerprint_default, vendor_hal_perf_default)
