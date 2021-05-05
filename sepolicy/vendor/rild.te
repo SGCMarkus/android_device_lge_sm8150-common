@@ -1,1 +1,3 @@
 get_prop(rild, vendor_lge_misc_prop)
+
+allow rild op_file:file r_file_perms;
