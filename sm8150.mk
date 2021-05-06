@@ -210,10 +210,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.3-service.clearkey
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.lge_msmnile
-
 # FM packages
 PRODUCT_PACKAGES += \
 	libqcomfm_jni \
