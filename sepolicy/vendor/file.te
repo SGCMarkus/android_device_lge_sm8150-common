@@ -17,6 +17,10 @@ type persistlg_wlan_file, file_type;
 # Power
 type qni_power_file, file_type;
 
+# Proc
+type proc_swappiness, proc_type, fs_type;
+type proc_laptop_mode, proc_type, fs_type;
+
 # SNS
 type sns_file, file_type;
 
