@@ -1,38 +1,57 @@
 # This file is imported by init.{ro.hardware}.rc
 
+# LGE logger service rc
+import /init.lge.log.rc
+
+# import zram configurations
+import /init.lge.svelte.rc
+
+on init
+
+# LG override start -device/qcom/msmnile/init.target.rc
 on fs
+    start hwservicemanager
+
+# LG_START
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-
     wait /dev/block/bootdevice
-    start hwservicemanager
+
     mount_all /vendor/etc/fstab.${ro.hardware} --early
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    restorecon_recursive /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/data 0700 system system
+# LG_END
 
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
-    restorecon /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
 
     chown system system /mnt/vendor/absolute
     chmod 0750 /mnt/vendor/absolute
-    restorecon /mnt/vendor/absolute
     restorecon_recursive /mnt/vendor/absolute
 
     chown system system /mnt/vendor/persist-lg
     chmod 0771 /mnt/vendor/persist-lg
-    restorecon /mnt/vendor/persist-lg
     restorecon_recursive /mnt/vendor/persist-lg
 
     chown system system /mnt/vendor/sns
     chmod 0755 /mnt/vendor/sns
-    restorecon /mnt/vendor/sns
     restorecon_recursive /mnt/vendor/sns
+
+    # We use reservedsize option in fstab instead of tune2fs. No more use tune2fs
+    # Executing tune2fs to reserve some region in /data.(40MB)
+    # exec /system/bin/tune2fs -u system -r 10240 /dev/block/bootdevice/by-name/userdata
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
+# LG_START
     mount_all /vendor/etc/fstab.${ro.hardware} --late
+# LG_END
+# LG override end
 
 on post-fs
     chown system system /vendor/mpt
@@ -57,4 +76,89 @@ on post-fs
     chown root system /sys/module/lge_handle_panic/parameters/gen_venus_panic
     chown root system /sys/module/lge_handle_panic/parameters/gen_wdt_bark
     chown root system /sys/module/lge_handle_panic/parameters/gen_wdt_bite
+
+on property:vold.decrypt=trigger_load_persist_props && property:ro.boot.vendor.lge.forced_log=enable
+    setprop ro.vendor.lge.forced_log enable
+
+on property:ro.vendor.lge.forced_log=enable
+    setprop persist.vendor.lge.service.crash.enable 1
+    setprop persist.vendor.lge.service.kernel.enable 5
+    setprop persist.vendor.lge.service.main.enable 5
+    setprop persist.vendor.lge.service.system.enable 5
+    setprop persist.vendor.lge.service.radio.enable 5
+    setprop persist.vendor.lge.service.events.enable 5
+
+# forced_usb_path_change
+service forced_usb_path_change /vendor/bin/init.lge.forced_usb_path_change.sh
+    disabled
+    oneshot
+
+on property:vold.decrypt=trigger_load_persist_props && property:ro.boot.vendor.lge.forced_usb_path_change=enable
+    start forced_usb_path_change
+
+# enable & disable crash handler, rtb & trace event through property
+on property:persist.vendor.lge.service.crash.enable=*
+    restart service-crash
+
+service service-crash /vendor/bin/init.sm8150.crash.sh
+    disabled
+    oneshot
+
+on property:persist.vendor.lge.service.crash.enable=1
+    start console
+    # rtb filter
+    write /sys/module/msm_rtb/parameters/filter 0x237
+
+    # ftrace
+    write /sys/kernel/tracing/tracing_on 1
+
+    #enble FTRACE for softirq events
+    write /sys/kernel/tracing/events/irq/enable 1
+    write /sys/kernel/tracing/events/irq/filter 1
+    write /sys/kernel/tracing/events/irq/softirq_entry/enable 1
+    write /sys/kernel/tracing/events/irq/softirq_exit/enable 1
+    write /sys/kernel/tracing/events/irq/softirq_raise/enable 1
+    write /sys/kernel/tracing/events/irq/irq_handler_entry/enable 1
+
+    #enble FTRACE for Workqueue events
+    write /sys/kernel/tracing/events/workqueue/enable 1
+    write /sys/kernel/tracing/events/workqueue/filter 1
+    write /sys/kernel/tracing/events/workqueue/workqueue_activate_work/enable 1
+    write /sys/kernel/tracing/events/workqueue/workqueue_execute_end/enable 1
+    write /sys/kernel/tracing/events/workqueue/workqueue_execute_start/enable 1
+    write /sys/kernel/tracing/events/workqueue/workqueue_queue_work/enable 1
+
+    # schedular
+    write /sys/kernel/tracing/events/sched/sched_cpu_hotplug/enable 1
+    write /sys/kernel/tracing/events/sched/sched_cpu_load/enable 1
+    write /sys/kernel/tracing/events/sched/sched_enq_deq_task/enable 1
+    write /sys/kernel/tracing/events/sched/sched_load_balance/enable 1
+    write /sys/kernel/tracing/events/sched/sched_migrate_task/enable 1
+    write /sys/kernel/tracing/events/sched/sched_switch/enable 1
+    write /sys/kernel/tracing/events/sched/sched_task_load/enable 1
+    write /sys/kernel/tracing/events/sched/sched_wakeup/enable 1
+    write /sys/kernel/tracing/events/sched/sched_wakeup_new/enable 1
+
+    # power
+    write /sys/kernel/tracing/events/msm_low_power/enable 1
+    write /sys/kernel/tracing/events/power/cpu_frequency/enable 1
+
+    # scm call
+    write /sys/kernel/tracing/events/scm/scm_call_start/enable 1
+    write /sys/kernel/tracing/events/scm/scm_call_end/enable 1
+
+    # size
+    write /sys/kernel/tracing/buffer_size_kb ${persist.vendor.lge.trace.sizekb}
+
+on property:persist.vendor.lge.service.crash.enable=0
+    # rtb filter
+    write /sys/module/msm_rtb/parameters/filter 0
+
+    # ftrace
+    write /sys/kernel/tracing/tracing_on 0
+
+# it takes to execute free_buffer over 100ms. moved after boot completed
+on property:sys.boot_completed=1 && property:persist.vendor.lge.service.crash.enable=0
+    # size
+    write /sys/kernel/tracing/buffer_size_kb 1
 

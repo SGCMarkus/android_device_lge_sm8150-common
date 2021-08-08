@@ -1,0 +1,12 @@
+#EGIS fingerprint calibration data ??
+on post-fs-data
+   mkdir /mnt/vendor/persist-lg/egis 0700 system system
+   mkdir /mnt/vendor/persist-lg/goodix 0755 system system
+   mkdir /data/vendor/fingerprintdump 0775 system system
+
+on boot
+   chown system system /dev/esfp0
+   chmod 0644 /dev/esfp0
+   chown system system /dev/goodix_fp
+   chmod 0644 /dev/goodix_fp
+

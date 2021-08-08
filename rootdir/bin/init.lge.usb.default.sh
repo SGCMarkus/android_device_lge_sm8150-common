@@ -1,7 +1,29 @@
-#! /vendor/bin/sh
+#!/vendor/bin/sh
 
-waitForState()
-{
+target_operator=`getprop ro.vendor.lge.build.target_operator`
+ui_version=`getprop ro.vendor.lge.lguiversion`
+case "$target_operator" in
+    "ATT")
+        default="charge_only"
+        ;;
+    "VZW")
+        default="charge_only"
+        if [ -f "/vendor/etc/usbautorun.iso" ]; then
+            if [ -f "/sys/class/android_usb/android0/f_cdrom_storage/lun/cdrom_usbmode" ]; then
+                echo 0 > /sys/class/android_usb/android0/f_cdrom_storage/lun/cdrom_usbmode
+            fi
+        fi
+        ;;
+    *)
+        if [ "${ui_version//./}" -ge "50" ]; then
+            default="charge_only"
+        else
+            default="mtp"
+        fi
+    ;;
+esac
+
+function waitForState() {
     local i
     local state=$1
     local value
@@ -18,14 +40,12 @@ waitForState()
     return
 }
 
-setUsbConfig()
-{
+function setUsbConfig() {
     setprop vendor.lge.usb.config $1
     waitForState $1
 }
 
-updateDefaultFunction()
-{
+function updateDefaultFunction() {
     setprop vendor.lge.usb.persist.config $1
     setprop vendor.lge.usb.config $1
 }

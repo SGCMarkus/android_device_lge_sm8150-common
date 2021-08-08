@@ -68,19 +68,19 @@ while [ "${#}" -gt 0 ]; do
 done
 
 if [ -z "$SRC" ]; then
-    SRC=/home/markus/V50/V500EM20n/system
+    SRC=/home/markus/V50S/V510N_30c/system
 fi
 
-function blob_fixup() {
-    case "${1}" in
-    product/lib/libdpmframework.so)
-        sed -i "s/libhidltransport.so/libcutils-v29.so\x00\x00\x00/" "${2}"
-        ;;
-    product/lib64/libdpmframework.so)
-        sed -i "s/libhidltransport.so/libcutils-v29.so\x00\x00\x00/" "${2}"
-        ;;
-    esac
-}
+#function blob_fixup() {
+#    case "${1}" in
+#    product/lib/libdpmframework.so)
+#        sed -i "s/libhidltransport.so/libcutils-v29.so\x00\x00\x00/" "${2}"
+#        ;;
+#    product/lib64/libdpmframework.so)
+#        sed -i "s/libhidltransport.so/libcutils-v29.so\x00\x00\x00/" "${2}"
+#        ;;
+#    esac
+#}
 
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"

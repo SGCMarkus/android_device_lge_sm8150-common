@@ -1,7 +1,0 @@
-on boot
-    chown system system /dev/goodix_fp
-    chmod 0644 /dev/goodix_fp
-
-on post-fs-data
-    mkdir /mnt/vendor/persist-lg/goodix 755 system system
-

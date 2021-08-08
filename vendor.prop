@@ -73,6 +73,7 @@ vendor.lge.fm_gain_control_speaker=1.0
 persist.vendor.bt.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac
 persist.vendor.qcom.bluetooth.enable.splita2dp=true
+persist.vendor.qcom.bluetooth.soc=cherokee
 persist.vendor.qcom.bluetooth.twsp_state.enabled=false
 ro.vendor.bluetooth.wipower=false
 vendor.qcom.bluetooth.soc=cherokee
@@ -90,7 +91,7 @@ persist.vendor.tb.disallowed=1
 ro.charger.enable_suspend=true
 
 # Crypto
-ro.crypto.allow_encrypt_override=true
+ro.crypto.set_dun=true
 ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Display
@@ -100,8 +101,10 @@ vendor.display.disable_decimation=1
 vendor.display.disable_excl_rect=0
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_inline_rotator=1
+vendor.display.disable_mask_layer_hint=1
 vendor.display.disable_scaler=0
 vendor.display.disable_ui_3d_tonemap=1
+vendor.display.enable_default_color_mode=1
 vendor.display.enable_null_display=0
 vendor.display.enable_optimize_refresh=1
 
@@ -131,10 +134,10 @@ debug.mdpcomp.logs=0
 debug.sf.hw=0
 persist.demo.hdmirotationlock=false
 persist.sys.sf.color_saturation=1.0
+ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.msmnile.api30
 ro.hardware.vulkan=adreno
 ro.hardware.egl=adreno
 ro.opengles.version=196610
-vendor.display.enable_default_color_mode=1
 vendor.gralloc.disable_ubwc=0
 
 # Keystore
@@ -158,15 +161,10 @@ persist.vendor.radio.procedure_bytes=SKIP
 rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 ro.telephony.default_network=26
 
-# Sensors
-persist.vendor.sensors.enable.mag_filter=false
-
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
 
-# Voice
-vendor.voice.path.for.pcm.voip=false
-
 # Volume
+ro.config.media_vol_steps=25
 ro.config.vc_call_vol_steps=7
 

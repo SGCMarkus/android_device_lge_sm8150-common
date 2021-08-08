@@ -1,3 +1,6 @@
+on init
+    insmod vendor/lib/modules/wmc_drv.ko
+
 on boot
     chown system system  /sys/class/lge_mme_bus/mme_bus_ctrl/boost
     chmod 664  /sys/class/lge_mme_bus/mme_bus_ctrl/boost

@@ -51,4 +51,4 @@ vendor.audio.feature.wsa.enable=false
 ro.vendor.qti.va_odm.support=1
 
 # Radio
-ro.telephony.iwlan_operation_mode=legacy
+ro.telephony.iwlan_operation_mode=AP-assisted
