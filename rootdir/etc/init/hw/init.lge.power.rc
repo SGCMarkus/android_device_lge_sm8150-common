@@ -33,3 +33,22 @@ on boot
 # printk log level
    write /proc/sys/kernel/printk "7 6 1 7"
 
+# LGE gbmd
+service vendor.gbmd /vendor/bin/gbmd
+   class main
+   socket gbm-client stream 660 system system
+   user system
+   group system
+
+# LGE prmd
+service vendor.prmd /vendor/bin/prmd
+   class main
+   socket prm-client stream 660 system system
+   user system
+   group system
+
+# LG Hiddenmenu smpl_count service
+service vendor.smpl_count /vendor/bin/smpl_count
+   class main
+   user root
+   oneshot

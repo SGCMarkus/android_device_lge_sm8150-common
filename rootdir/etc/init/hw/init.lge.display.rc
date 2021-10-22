@@ -29,8 +29,20 @@
 on boot
 
 # Begin Display General Features
+	chown system system /sys/class/panel/panel-0/drs/freeze_state_hal
+	chmod 664 /sys/class/panel/panel-0/drs/freeze_state_hal
+
+	chown system system /sys/class/panel/panel-1/drs/freeze_state_hal
+	chmod 664 /sys/class/panel/panel-1/drs/freeze_state_hal
+
 	chown system system /sys/class/panel/drs/freeze_state_hal
 	chmod 664 /sys/class/panel/drs/freeze_state_hal
+
+	chown system system /sys/class/graphics/fb0/freeze_state_hal
+	chmod 664 /sys/class/graphics/fb0/freeze_state_hal
+
+	chown system system /sys/class/panel/freeze_state_hal
+	chmod 664 /sys/class/panel/freeze_state_hal
 # End Display General Features
 
 # Begin Display Brigntness Features
@@ -44,6 +56,52 @@ on boot
 	chmod 664 /sys/class/backlight/panel0-backlight-cover/brightness
 	chown system system /sys/class/backlight/panel0-backlight-ex/max_brightness
 	chmod 664 /sys/class/backlight/panel0-backlight-ex/max_brightness
+
+	chown system system /sys/class/backlight/panel1-backlight/brightness
+	chmod 664 /sys/class/backlight/panel1-backlight/brightness
+	chown system system /sys/class/backlight/panel1-backlight/max_brightness
+	chmod 664 /sys/class/backlight/panel1-backlight/max_brightness
+	chown system system /sys/class/backlight/panel1-backlight-ex/brightness
+	chmod 664 /sys/class/backlight/panel1-backlight-ex/brightness
+	chown system system /sys/class/backlight/panel1-backlight-cover/brightness
+	chmod 664 /sys/class/backlight/panel1-backlight-cover/brightness
+	chown system system /sys/class/backlight/panel1-backlight-ex/max_brightness
+	chmod 664 /sys/class/backlight/panel1-backlight-ex/max_brightness
+
+	chown system system /sys/class/panel/panel-0/brightness/hl_mode
+	chmod 664 /sys/class/panel/panel-0/brightness/hl_mode
+	chown system system /sys/class/panel/panel-0/brightness/br_offset
+	chmod 664 /sys/class/panel/panel-0/brightness/br_offset
+	chown system system /sys/class/panel/panel-0/brightness/irc_brighter
+	chmod 664 /sys/class/panel/panel-0/brightness/irc_brighter
+	chown system system /sys/class/panel/panel-0/brightness/irc_support
+	chmod 444 /sys/class/panel/panel-0/brightness/irc_support
+	chown system system /sys/class/panel/panel-0/brightness/brightness_table
+	chmod 664 /sys/class/panel/panel-0/brightness/brightness_table
+	chown system system /sys/class/panel/panel-0/brightness/fp_lhbm
+	chmod 664 /sys/class/panel/panel-0/brightness/fp_lhbm
+	chown system system /sys/class/panel/panel-0/brightness/is_fp_hbm_mode
+	chmod 444 /sys/class/panel/panel-0/brightness/is_fp_hbm_mode
+	chown system system /sys/class/panel/panel-0/brightness/tc_perf
+	chmod 664 /sys/class/panel/panel-0/brightness/tc_perf
+
+	chown system system /sys/class/panel/panel-1/brightness/hl_mode
+	chmod 664 /sys/class/panel/panel-1/brightness/hl_mode
+	chown system system /sys/class/panel/panel-1/brightness/br_offset
+	chmod 664 /sys/class/panel/panel-1/brightness/br_offset
+	chown system system /sys/class/panel/panel-1/brightness/irc_brighter
+	chmod 664 /sys/class/panel/panel-1/brightness/irc_brighter
+	chown system system /sys/class/panel/panel-1/brightness/irc_support
+	chmod 444 /sys/class/panel/panel-1/brightness/irc_support
+	chown system system /sys/class/panel/panel-1/brightness/brightness_table
+	chmod 664 /sys/class/panel/panel-1/brightness/brightness_table
+	chown system system /sys/class/panel/panel-1/brightness/fp_lhbm
+	chmod 664 /sys/class/panel/panel-1/brightness/fp_lhbm
+	chown system system /sys/class/panel/panel-1/brightness/is_fp_hbm_mode
+	chmod 444 /sys/class/panel/panel-1/brightness/is_fp_hbm_mode
+	chown system system /sys/class/panel/panel-1/brightness/tc_perf
+	chmod 664 /sys/class/panel/panel-1/brightness/tc_perf
+
 	chown system system /sys/class/panel/brightness/hl_mode
 	chmod 664 /sys/class/panel/brightness/hl_mode
 	chown system system /sys/class/panel/brightness/br_offset
@@ -56,11 +114,23 @@ on boot
 	chmod 664 /sys/class/panel/brightness/brightness_table
 	chown system system /sys/class/panel/brightness/fp_lhbm
 	chmod 664 /sys/class/panel/brightness/fp_lhbm
+	chown system system /sys/class/panel/brightness/is_fp_hbm_mode
+	chmod 444 /sys/class/panel/brightness/is_fp_hbm_mode
 	chown system system /sys/class/panel/brightness/tc_perf
 	chmod 664 /sys/class/panel/brightness/tc_perf
 # End Display Brigntness Features
 
 # Begin Display Aod Features
+	chown system system /sys/class/panel/panel-0/aod/area
+	chmod 664 /sys/class/panel/panel-0/aod/area
+	chown system system /sys/class/panel/panel-0/aod/power_mode
+	chmod 664 /sys/class/panel/panel-0/aod/power_mode
+
+	chown system system /sys/class/panel/panel-1/aod/area
+	chmod 664 /sys/class/panel/panel-1/aod/area
+	chown system system /sys/class/panel/panel-1/aod/power_mode
+	chmod 664 /sys/class/panel/panel-1/aod/power_mode
+
 	chown system system /sys/class/panel/aod/area
 	chmod 664 /sys/class/panel/aod/area
 	chown system system /sys/class/panel/aod/power_mode
@@ -68,18 +138,86 @@ on boot
 # End Display Aod Features
 
 # Begin Img Tune Features
+	chown system system /sys/class/panel/panel-0/img_tune/rgb_tune
+	chmod 664 /sys/class/panel/panel-0/img_tune/rgb_tune
+	chown system system /sys/class/panel/panel-0/img_tune/screen_tune
+	chmod 664 /sys/class/panel/panel-0/img_tune/screen_tune
+	chown system system /sys/class/panel/panel-0/img_tune/screen_mode
+	chmod 664 /sys/class/panel/panel-0/img_tune/screen_mode
+
+	chown system system /sys/class/panel/panel-1/img_tune/rgb_tune
+	chmod 664 /sys/class/panel/panel-1/img_tune/rgb_tune
+	chown system system /sys/class/panel/panel-1/img_tune/screen_tune
+	chmod 664 /sys/class/panel/panel-1/img_tune/screen_tune
+	chown system system /sys/class/panel/panel-1/img_tune/screen_mode
+	chmod 664 /sys/class/panel/panel-1/img_tune/screen_mode
+
 	chown system system /sys/class/panel/img_tune/rgb_tune
 	chmod 664 /sys/class/panel/img_tune/rgb_tune
 	chown system system /sys/class/panel/img_tune/screen_tune
 	chmod 664 /sys/class/panel/img_tune/screen_tune
 	chown system system /sys/class/panel/img_tune/screen_mode
 	chmod 664 /sys/class/panel/img_tune/screen_mode
+
 	chown system system /sys/class/panel_cover/img_tune/rgb_tune
 	chmod 664 /sys/class/panel_cover/img_tune/rgb_tune
 	chown system system /sys/class/panel_cover/img_tune/screen_tune
 	chmod 664 /sys/class/panel_cover/img_tune/screen_tune
 	chown system system /sys/class/panel_cover/img_tune/screen_mode
 	chmod 664 /sys/class/panel_cover/img_tune/screen_mode
+
+	chown system system /sys/class/panel/panel-0/img_tune/comfort_view
+	chmod 664 /sys/class/panel/panel-0/img_tune/comfort_view
+	chown system system /sys/class/panel/panel-0/img_tune/video_enhancement
+	chmod 664 /sys/class/panel/panel-0/img_tune/video_enhancement
+	chown system system /sys/class/panel/panel-0/img_tune/vr_low_persist
+	chmod 664 /sys/class/panel/panel-0/img_tune/vr_low_persist
+	chown system system /sys/class/panel/panel-0/img_tune/hdr_mode
+	chmod 664 /sys/class/panel/panel-0/img_tune/hdr_mode
+	chown system system /sys/class/panel/panel-0/img_tune/sharpness
+	chmod 664 /sys/class/panel/panel-0/img_tune/sharpness
+	chown system system /sys/class/panel/panel-0/img_tune/true_view
+	chmod 664 /sys/class/panel/panel-0/img_tune/true_view
+	chown system system /sys/class/panel/panel-0/img_tune/damping_mode
+	chmod 664 /sys/class/panel/panel-0/img_tune/damping_mode
+	chown system system /sys/class/panel/panel-0/img_tune/image_enhance_set
+	chmod 664 /sys/class/panel/panel-0/img_tune/image_enhance_set
+	chown system system /sys/class/panel/panel-0/img_tune/mplus_mode
+	chmod 664 /sys/class/panel/panel-0/img_tune/mplus_mode
+	chown system system /sys/class/panel/panel-0/img_tune/mplus_hd
+	chmod 664 /sys/class/panel/panel-0/img_tune/mplus_hd
+	chown system system /sys/class/panel/panel-0/img_tune/mplus_max
+	chmod 664 /sys/class/panel/panel-0/img_tune/mplus_max
+	chown system system /sys/class/panel/panel-0/img_tune/ecc_status
+	chmod 664 /sys/class/panel/panel-0/img_tune/ecc_status
+	chown system system /sys/class/panel/panel-0/img_tune/daylight_mode
+	chmod 664 /sys/class/panel/panel-0/img_tune/daylight_mode
+	chown system system /sys/class/panel/panel-0/img_tune/fps_status
+	chmod 444 /sys/class/panel/panel-0/img_tune/fps_status
+
+	chown system system /sys/class/panel/panel-1/img_tune/comfort_view
+	chmod 664 /sys/class/panel/panel-1/img_tune/comfort_view
+	chown system system /sys/class/panel/panel-1/img_tune/video_enhancement
+	chmod 664 /sys/class/panel/panel-1/img_tune/video_enhancement
+	chown system system /sys/class/panel/panel-1/img_tune/vr_low_persist
+	chmod 664 /sys/class/panel/panel-1/img_tune/vr_low_persist
+	chown system system /sys/class/panel/panel-1/img_tune/hdr_mode
+	chmod 664 /sys/class/panel/panel-1/img_tune/hdr_mode
+	chown system system /sys/class/panel/panel-1/img_tune/sharpness
+	chmod 664 /sys/class/panel/panel-1/img_tune/sharpness
+	chown system system /sys/class/panel/panel-1/img_tune/true_view
+	chmod 664 /sys/class/panel/panel-1/img_tune/true_view
+	chown system system /sys/class/panel/panel-1/img_tune/damping_mode
+	chmod 664 /sys/class/panel/panel-1/img_tune/damping_mode
+	chown system system /sys/class/panel/panel-1/img_tune/image_enhance_set
+	chmod 664 /sys/class/panel/panel-1/img_tune/image_enhance_set
+	chown system system /sys/class/panel/panel-1/img_tune/mplus_mode
+	chmod 664 /sys/class/panel/panel-1/img_tune/mplus_mode
+	chown system system /sys/class/panel/panel-1/img_tune/mplus_hd
+	chmod 664 /sys/class/panel/panel-1/img_tune/mplus_hd
+	chown system system /sys/class/panel/panel-1/img_tune/mplus_max
+	chmod 664 /sys/class/panel/panel-1/img_tune/mplus_max
+
 	chown system system /sys/class/panel/img_tune/comfort_view
 	chmod 664 /sys/class/panel/img_tune/comfort_view
 	chown system system /sys/class/panel/img_tune/video_enhancement
@@ -94,6 +232,18 @@ on boot
 	chmod 664 /sys/class/panel/img_tune/true_view
 	chown system system /sys/class/panel/img_tune/damping_mode
 	chmod 664 /sys/class/panel/img_tune/damping_mode
+	chown system system /sys/class/panel/img_tune/image_enhance_set
+	chmod 664 /sys/class/panel/img_tune/image_enhance_set
+	chown system system /sys/class/panel/img_tune/mplus_mode
+	chmod 664 /sys/class/panel/img_tune/mplus_mode
+	chown system system /sys/class/panel/img_tune/mplus_hd
+	chmod 664 /sys/class/panel/img_tune/mplus_hd
+	chown system system /sys/class/panel/img_tune/mplus_max
+	chmod 664 /sys/class/panel/img_tune/mplus_max
+	chown system system /sys/class/panel/img_tune/ecc_status
+	chmod 664 /sys/class/panel/img_tune/ecc_status
+	chown system system /sys/class/panel/img_tune/daylight_mode
+	chmod 664 /sys/class/panel/img_tune/daylight_mode
 # End Img Tune Features
 
 # Begin Accessory Features
@@ -131,3 +281,14 @@ on boot
 	chown system system /sys/devices/platform/soc/ae90000.qcom,dp_display/extcon/extcon5/state
 	chmod 664 /sys/devices/platform/soc/ae90000.qcom,dp_display/extcon/extcon5/state
 # End Cover Features
+
+# Begin Display Factory Features
+	chown system system /sys/class/panel/panel-0/factory/mfts_auto_touch_test_mode
+	chmod 664 /sys/class/panel/panel-0/factory/mfts_auto_touch_test_mode
+
+	chown system system /sys/class/panel/panel-1/factory/mfts_auto_touch_test_mode
+	chmod 664 /sys/class/panel/panel-1/factory/mfts_auto_touch_test_mode
+
+	chown system system /sys/class/panel/factory/mfts_auto_touch_test_mode
+	chmod 664 /sys/class/panel/factory/mfts_auto_touch_test_mode
+# End Display Factory Features

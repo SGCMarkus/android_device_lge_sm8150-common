@@ -5,6 +5,9 @@ on chargerlogo
     trigger post-fs
     trigger late-fs
     trigger post-fs-data
+    trigger load_persist_props_action
+    trigger lapex-mount
+    trigger firmware_mounts_complete
     trigger chargerlogo_exec
 
 on chargerlogo_exec
@@ -13,6 +16,8 @@ on chargerlogo_exec
     chmod 0666 /mnt/vendor/persist-lg/chargerlogo/noautoboot
     chown system system /mnt/vendor/persist-lg/chargerlogo/batt_reboot_hist
     chmod 0666 /mnt/vendor/persist-lg/chargerlogo/batt_reboot_hist
+    chown system system /mnt/vendor/persist-lg/chargerlogo/autoboot_config
+    chmod 0666 /mnt/vendor/persist-lg/chargerlogo/autoboot_config
     write /mnt/vendor/persist-lg/chargerlogo/autoboot_nosound 0
     chmod 0666 /mnt/vendor/persist-lg/chargerlogo/autoboot_nosound
     chmod 0771 /mnt/vendor/persist-lg/dqsl
@@ -20,4 +25,15 @@ on chargerlogo_exec
     chmod 0666 /mnt/vendor/persist-lg/dqsl/charging_count
     chown system system /mnt/vendor/persist-lg/dqsl/charging_level
     chmod 0666 /mnt/vendor/persist-lg/dqsl/charging_level
+    chown system system /sys/power/state
+    chmod 0666 /sys/power/state
+    chown system system /sys/power/wakeup_count
+    chmod 0666 /sys/power/wakeup_count
+    exec u:r:chargerlogo:s0 -- /vendor/bin/chargerlogo
+    trigger chargerlogo_after
+
+# WA chargerlogo kill
+on chargerlogo_after
+    exec u:r:chargerlogo:s0 -- /vendor/bin/chargerlogo
+    trigger chargerlogo_after
 

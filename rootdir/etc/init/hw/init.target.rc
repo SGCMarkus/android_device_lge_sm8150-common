@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2019, The Linux Foundation. All rights reserved.
+# Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -28,7 +28,7 @@
 #
 
 on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_wglink audio_q6_pdr audio_q6_notifier audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_swr audio_platform audio_hdmi audio_wcd_spi audio_stub audio_wcd_core audio_wsa881x audio_wcd9360 audio_hdmi audio_machine_msmnile audio_cs43131 audio_sma6101
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_wglink audio_q6_pdr audio_q6_notifier audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_swr audio_platform audio_hdmi audio_wcd_spi audio_stub audio_wcd_core audio_wsa881x audio_wcd9360 audio_hdmi audio_machine_msmnile
     write /proc/sys/kernel/sched_boost 1
     symlink /data/tombstones /tombstones
 
@@ -47,11 +47,25 @@ on init
 on early-fs
     start vold
 
+on fs
+#    start hwservicemanager
+#    mount_all /vendor/etc/fstab.qcom --early
+#    chown root system /mnt/vendor/persist
+#    chmod 0771 /mnt/vendor/persist
+#    restorecon_recursive /mnt/vendor/persist
+#    mkdir /mnt/vendor/persist/data 0700 system system
+
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
-    start vendor.sec_nvm
+#    start vendor.spdaemon
+#    start vendor.sec_nvm
+
+#on late-fs
+#    wait_for_prop hwservicemanager.ready true
+#    exec_start wait_for_keymaster
+#    mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
@@ -84,14 +98,8 @@ on boot
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
 
-    # Create netmgr recovery folder
-    mkdir /data/vendor/netmgr/recovery 0700 radio radio
-    chmod 0770 /data/vendor/netmgr/recovery
-    write /data/vendor/netmgr/recovery/recovery_info ""
-    chown radio radio /data/vendor/netmgr/recovery/recovery_info
-
-    chown nfc nfc /dev/pn547
-    chmod 0660 /dev/pn547
+#Load WLAN driver
+    insmod /vendor/lib/modules/qca_cld3_wlan.ko
 
 # Add a cpuset for the camera daemon
 # We want all cores for camera
@@ -109,7 +117,6 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.qdss.inst.name "qdss"
     setprop vendor.usb.controller a600000.dwc3
-    setprop sys.usb.configfs 1
 
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
@@ -119,12 +126,6 @@ on property:vendor.display.lcd_density=640
 
 on boot && property:persist.vendor.usb.controller.default=*
     setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
-
-on property:vendor.usb.controller=*
-    setprop sys.usb.controller ${vendor.usb.controller}
-
-#Load WLAN driver
-#    insmod /vendor/lib/modules/qca_cld3_wlan.ko
 
 #pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
@@ -156,10 +157,16 @@ on charger
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
-service vendor.sec_nvm /vendor/bin/sec_nvm
-    class core
-    user system
-    group system
+#service vendor.spdaemon /vendor/bin/spdaemon
+#    class core
+#    user system
+#    group system
+#    shutdown critical
+
+#service vendor.sec_nvm /vendor/bin/sec_nvm
+#    class core
+#    user system
+#    group system
 
 service vendor.thermal-engine /vendor/bin/thermal-engine
    class main
@@ -171,33 +178,31 @@ service vendor.thermal-engine /vendor/bin/thermal-engine
    group root
 
 
-service vendor.adsprpcd /vendor/bin/adsprpcd
-   class main
-   user root
-   group media
-
-service vendor.adsprpcd_audiopd /vendor/bin/adsprpcd audiopd
-   class main
-   user media
-   group media
-
-service vendor.cdsprpcd /vendor/bin/cdsprpcd
-   class main
+service vendor.lowi /vendor/bin/sscrpcd
+   class core
    user system
    group system wakelock
    capabilities BLOCK_SUSPEND
 
-# LGE_ModemBSP_S, Added shutdown critical to prevent kill before esoc shutdown completed.
 service vendor.mdm_helper /vendor/bin/mdm_helper
     class core
     group system wakelock
-    shutdown critical
     disabled
-# LGE_ModemBSP_E
 
 service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
     class main
     oneshot
+
+# LGE disable cnss_diag for one time starting
+#on property:vold.decrypt=trigger_restart_framework
+#    start cnss_diag
+
+# LGE disable cnss_diag for one time starting
+#service cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
+#    class main
+#    user system
+#    group system wifi inet sdcard_rw media_rw diag
+#    oneshot
 
 service vendor.energy-awareness /vendor/bin/energy-awareness
     class main
@@ -205,7 +210,20 @@ service vendor.energy-awareness /vendor/bin/energy-awareness
     group system
     oneshot
 
-service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
-    class main
+service dcvs-sh /vendor/bin/init.qti.dcvs.sh
+    class late_start
     user root
-    group system wakelock
+    group root system
+    disabled
+    oneshot
+
+on property:vendor.dcvs.prop=1
+   start dcvs-sh
+
+service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0-service
+    override
+    class hal
+    interface android.hardware.contexthub@1.0::IContexthub default
+    user system
+    group system
+    disabled

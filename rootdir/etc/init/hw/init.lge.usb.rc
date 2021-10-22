@@ -1,7 +1,7 @@
 import /vendor/etc/init/hw/init.lge.usb.dev.rc
 import /vendor/etc/init/hw/init.lge.usb.comp.rc
 
-on early-boot
+on boot
     write /sys/class/android_usb/android0/f_rndis/manufacturer LGE
     write /sys/class/android_usb/android0/f_rndis/vendorID 1004
     write /sys/class/android_usb/android0/f_rndis/wceis 1
@@ -10,8 +10,8 @@ on early-boot
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/f_ffs/aliases adb
     mount configfs none /config
-    mkdir /config/usb_gadget/g1 0770
-    mkdir /config/usb_gadget/g1/strings/0x409 0770
+    mkdir /config/usb_gadget/g1 0755
+    mkdir /config/usb_gadget/g1/strings/0x409 0755
     write /config/usb_gadget/g1/bcdUSB 0x0200
     write /config/usb_gadget/g1/os_desc/use 1
     write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
@@ -26,6 +26,9 @@ on early-boot
     mkdir /config/usb_gadget/g1/functions/hid.charge
     mkdir /config/usb_gadget/g1/functions/acm.0
     mkdir /config/usb_gadget/g1/functions/ffs.adb
+    mkdir /config/usb_gadget/g1/functions/ffs.diag
+    mkdir /config/usb_gadget/g1/functions/ffs.diag_mdm
+    mkdir /config/usb_gadget/g1/functions/ffs.diag_mdm2
     mkdir /config/usb_gadget/g1/functions/diag.diag
     mkdir /config/usb_gadget/g1/functions/diag.diag_mdm
     mkdir /config/usb_gadget/g1/functions/diag.diag_mdm2
@@ -45,25 +48,33 @@ on early-boot
     mkdir /config/usb_gadget/g1/functions/ccid.ccid
     mkdir /config/usb_gadget/g1/functions/uac2.0
     mkdir /config/usb_gadget/g1/functions/uvc.0
-    mkdir /config/usb_gadget/g1/configs/b.1 0770
-    mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770
+    mkdir /config/usb_gadget/g1/configs/b.1 0755
+    mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0755
+    write /config/usb_gadget/g1/configs/b.1/MaxPower 900
     write /config/usb_gadget/g1/os_desc/b_vendor_code 0x1
     write /config/usb_gadget/g1/os_desc/qw_sign "MSFT100"
+    write /config/usb_gadget/g1/functions/diag.diag/serial ${ro.serialno}
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
     mkdir /dev/usb-ffs 0775 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
-    mount functionfs adb /dev/usb-ffs/adb rmode=0770,fmode=0660,uid=2000,gid=2000
+    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000,rmode=0770,fmode=0660
+    mkdir /dev/ffs-diag 0770 shell system
+    mount functionfs diag /dev/ffs-diag uid=2000,gid=1000,rmode=0770,fmode=0660,no_disconnect=1
+    mkdir /dev/ffs-diag-1 0770 shell system
+    mount functionfs diag_mdm /dev/ffs-diag-1 uid=2000,gid=1000,rmode=0770,fmode=0660,no_disconnect=1
+    mkdir /dev/ffs-diag-2 0770 shell system
+    mount functionfs diag_mdm2 /dev/ffs-diag-2 uid=2000,gid=1000,rmode=0770,fmode=0660,no_disconnect=1
     setprop sys.usb.mtp.device_type 3
     setprop vendor.lge.usb.controller ${sys.usb.controller}
+    exec u:r:lge-usb-sh:s0 -- /vendor/bin/init.lge.usb.sh ${persist.sys.usb.config}
 
-on load_persist_props_action
-    enable vendor.lge-usb-sh
-
-service vendor.lge-usb-sh /vendor/bin/init.lge.usb.sh ${persist.sys.usb.config}
-    class core
-    user root
-    oneshot
-    disabled
+on boot && property:vendor.usb.use_ffs_mtp=1
+   mkdir /config/usb_gadget/g1/functions/ffs.mtp
+   mkdir /config/usb_gadget/g1/functions/ffs.ptp
+   mkdir /dev/usb-ffs/mtp 0770 mtp mtp
+   mount functionfs mtp /dev/usb-ffs/mtp rmode=0770,fmode=0660,uid=1024,gid=1024,no_disconnect=1
+   mkdir /dev/usb-ffs/ptp 0770 mtp mtp
+   mount functionfs ptp /dev/usb-ffs/ptp rmode=0770,fmode=0660,uid=1024,gid=1024,no_disconnect=1
 
 service vendor.lge-usb-def-sh /vendor/bin/init.lge.usb.default.sh ${persist.sys.usb.config}
     class core
@@ -144,10 +155,11 @@ on property:vendor.lge.usb.typec.power_role=none
 
 # USB Moisture Detection
 on property:persist.vendor.lge.usb.moisture_en=*
-	write /sys/class/dual_role_usb/otg_default/moisture_en ${persist.vendor.lge.usb.moisture_en}
+    write /sys/class/dual_role_usb/otg_default/moisture_en ${persist.vendor.lge.usb.moisture_en}
+    write /sys/devices/platform/lge-unified-nodes/typec_moisture_en ${persist.vendor.lge.usb.moisture_en}
 
 on property:persist.vendor.lge.usb.moisture_ux=*
-	write /sys/class/dual_role_usb/otg_default/moisture_ux ${persist.vendor.lge.usb.moisture_ux}
+    write /sys/class/dual_role_usb/otg_default/moisture_ux ${persist.vendor.lge.usb.moisture_ux}
 
 # boot
 on property:sys.usb.config=boot,adb && property:sys.usb.ffs.ready=0

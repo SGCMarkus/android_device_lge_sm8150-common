@@ -26,6 +26,30 @@ on boot
    chown system system /sys/devices/platform/lge-unified-nodes/support_fastpl
    chown system system /sys/devices/platform/lge-unified-nodes/support_fastchg
 
+# battery fake mode
+on property:persist.vendor.lge.service.fakebatt=1
+   write /sys/devices/platform/lge-unified-nodes/fake_battery 1
+on property:persist.vendor.lge.service.fakebatt=0
+   write /sys/devices/platform/lge-unified-nodes/fake_battery 0
+
+# usb current max mode property
+on property:persist.vendor.lge.service.usbcurrentmax=1
+   write /sys/devices/platform/lge-unified-nodes/fake_sdpmax 1
+on property:persist.vendor.lge.service.usbcurrentmax=0
+   write /sys/devices/platform/lge-unified-nodes/fake_sdpmax 0
+
+# hvdcp fake mode
+on property:persist.vendor.lge.service.hvdcpfakemode=1
+   write /sys/devices/platform/lge-unified-nodes/fake_hvdcp 1
+on property:persist.vendor.lge.service.hvdcpfakemode=0
+   write /sys/devices/platform/lge-unified-nodes/fake_hvdcp 0
+
+# llk mode
+on property:persist.vendor.lge.sys.store_demo_enabled=1
+   write /sys/devices/platform/lge-unified-nodes/charging_showcase 1
+on property:persist.vendor.lge.sys.store_demo_enabled=0
+   write /sys/devices/platform/lge-unified-nodes/charging_showcase 0
+
 on chargerlogo
    setprop persist.vendor.tb.disallowed 1
    setprop persist.vendor.ctm.disallowed 1
@@ -102,6 +126,9 @@ on chargerlogo
    write /config/usb_gadget/g1/UDC "a600000.dwc3"
    write /sys/devices/platform/lge-unified-nodes/status_boot 1
 
+on late-fs && property:ro.bootmode=chargerlogo
+   write /dev/ipa 1
+
 # Qnovo soluion
 on post-fs-data
    mkdir /data/vendor/power 0771 root system
@@ -133,26 +160,84 @@ on property:vendor.lge.qnovo.qni.safety=*
 
 on property:sys.shutdown.requested=*
    stop vendor.qni
+   stop vendor.qni_log
    write /sys/class/qnovo/qnovo_enable 0
 
 on property:persist.vendor.lge.service.chg_mode=LGE
    stop vendor.qni
+   stop vendor.qni_log
    write /sys/class/qnovo/qnovo_enable 0
 
-on property:persist.vendor.lge.service.chg_mode=LGE,QNOVO
+on property:persist.vendor.lge.service.chg_mode=LGE,QNOVO && property:persist.vendor.lge.service.kernel.enable=0
+   stop vendor.qni_log
    start vendor.qni
 
-on property:persist.vendor.lge.service.chg_mode=QNOVO
+on property:persist.vendor.lge.service.chg_mode=QNOVO && property:persist.vendor.lge.service.kernel.enable=0
+   stop vendor.qni_log
    start vendor.qni
+
+on property:persist.vendor.lge.service.chg_mode=LGE,QNOVO && property:persist.vendor.lge.service.kernel.enable=1
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=LGE,QNOVO && property:persist.vendor.lge.service.kernel.enable=2
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=LGE,QNOVO && property:persist.vendor.lge.service.kernel.enable=3
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=LGE,QNOVO && property:persist.vendor.lge.service.kernel.enable=4
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=LGE,QNOVO && property:persist.vendor.lge.service.kernel.enable=5
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=LGE,QNOVO && property:persist.vendor.lge.service.kernel.enable=6
+   stop vendor.qni
+   start vendor.qni_log
+
+on property:persist.vendor.lge.service.chg_mode=QNOVO && property:persist.vendor.lge.service.kernel.enable=1
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=QNOVO && property:persist.vendor.lge.service.kernel.enable=2
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=QNOVO && property:persist.vendor.lge.service.kernel.enable=3
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=QNOVO && property:persist.vendor.lge.service.kernel.enable=4
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=QNOVO && property:persist.vendor.lge.service.kernel.enable=5
+   stop vendor.qni
+   start vendor.qni_log
+on property:persist.vendor.lge.service.chg_mode=QNOVO && property:persist.vendor.lge.service.kernel.enable=6
+   stop vendor.qni
+   start vendor.qni_log
 
 service vendor.qni /system/vendor/bin/qni -d /mnt/vendor/power -l /data/vendor/power -o 2
    socket qnibsd stream 660 qni system
    disabled
 
+service vendor.qni_log /system/vendor/bin/qni -d /mnt/vendor/power -l /data/vendor/power -o 6
+   socket qnibsd stream 660 qni system
+   disabled
+
+# Hard Reset Type: 8-DVDD_HARD_RESET, 9-XVDD_HARD_RESET
+on property:persist.vendor.lge.hardreset=0
+   write /sys/module/qpnp_power_on/parameters/s2_type 8
+on property:persist.vendor.lge.hardreset=1
+   write /sys/module/qpnp_power_on/parameters/s2_type 9
+
 on property:sys.boot_completed=1
    write /sys/devices/platform/lge-unified-nodes/status_boot 1
 
 on boot
+#   chown system system /proc/lge_power/psfeature/vfps
+#   chmod 664 /proc/lge_power/psfeature/vfps
+#   chown system system /proc/lge_power/psfeature/vfps_fcnt
+#   chmod 664 /proc/lge_power/psfeature/vfps_fcnt
+#   chown system system /proc/lge_power/psfeature/vfps_ratio
+#   chmod 664 /proc/lge_power/psfeature/vfps_ratio
    chown system system /sys/class/power/fbcn/fbcn_en
    chmod 664 /sys/class/power/fbcn/fbcn_en
    chown system system /sys/class/power/fbcn/fbcn_i
