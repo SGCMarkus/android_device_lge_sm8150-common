@@ -16,6 +16,12 @@ value:2905
 [AID_VENDOR_QRTR]
 value:2906
 
+[AID_VENDOR_THERMAL]
+value:2907
+
+[AID_VENDOR_FASTRPC]
+value:2908
+
 [bt_firmware/]
 mode: 0771
 user: AID_SYSTEM
