@@ -1,0 +1,6 @@
+#
+# system_ext props for lge sm8150-common
+#
+
+# DPM
+persist.vendor.dpm.feature=11
