@@ -516,6 +516,9 @@ vendor/lib64/libhbtpfrmwk.so
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
+# Input
+vendor/etc/excluded-input-devices.xml
+
 # IO Prefetcher
 vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
 vendor/etc/init/vendor.qti.hardware.iop@2.0-service.rc
