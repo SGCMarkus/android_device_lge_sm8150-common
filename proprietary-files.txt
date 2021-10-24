@@ -322,7 +322,7 @@ vendor/etc/qdcm_calib_data_sw43404_amoled_video_mode_dsi_boe_panel_with_DSC.xml|
 vendor/etc/qdcm_calib_data_RM69299_MD_cmd_mode_dsi_panel.xml|e3b2c5fb68c4320cdfa738aff4793272ff9b7bc5
 
 # Display calibration data - mh2lm - V510N 30c
-vendor/etc/qdcm_calib_data_R66456_MD_cmd_mode_dsi_panel.xml|4035eb832770bc60ef08191e2aab5ed3a7d18093
+vendor/etc/qdcm_calib_data_R66456_MD_cmd_mode_dsi_panel.xml|6a9a952a37afb515eaf26ce3f3b32e7f1f02a84e
 
 # Display postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
@@ -341,6 +341,7 @@ vendor/lib64/vendor.display.postproc@1.0.so
 system/framework/tcmclient.jar
 system_ext/bin/dpmd
 system_ext/etc/dpm/dpm.conf
+system_ext/etc/init/dpmd.rc|f061bb76ae844f6df04c1d78caf00cf29a41b112
 system_ext/etc/permissions/com.qti.dpmframework.xml
 system_ext/etc/permissions/dpmapi.xml
 system_ext/framework/com.qti.dpmframework.jar
@@ -517,6 +518,7 @@ system_ext/framework/com.android.hotwordenrollment.common.util.jar
 # IO Prefetcher
 vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
 vendor/etc/init/vendor.qti.hardware.iop@2.0-service.rc
+vendor/lib64/libqti-iopd-client-vendor.so
 vendor/lib64/libqti-iopd-client.so
 vendor/lib64/libqti-iopd.so
 vendor/lib64/vendor.qti.hardware.iop@1.0.so
@@ -582,6 +584,9 @@ vendor/etc/seccomp_policy/codec2.vendor.ext.policy
 vendor/etc/system_properties.xml
 vendor/lib/libqcodec2.so
 vendor/lib64/libmmosal.so
+
+# MSM IRQ
+vendor/bin/msm_irqbalance
 
 # Neural-networks
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti
@@ -663,6 +668,15 @@ vendor/lib64/libmulawdec.so
 vendor/lib64/libomx-dtsdec.so
 vendor/lib64/libswvdec.so
 
+# PASR
+-vendor/app/pasrservice/pasrservice.apk
+vendor/bin/hw/vendor.qti.power.pasrmanager@1.0-service
+vendor/etc/init/vendor.qti.power.pasrmanager@1.0-service.rc
+vendor/lib64/hw/vendor.qti.power.pasrmanager@1.0-impl.so
+vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so
+vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so
+vendor/lib64/vendor.qti.power.pasrmanager@1.0.so
+
 # Perf
 vendor/bin/hw/vendor.qti.hardware.perf@2.2-service
 vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc
@@ -675,20 +689,21 @@ vendor/etc/powerhint.xml
 vendor/lib/libperfconfig.so
 vendor/lib/libperfgluelayer.so
 vendor/lib/libperfioctl.so
+vendor/lib/libqti-perfd-client-vendor.so
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-perfd.so
+vendor/lib/libqti-util-vendor.so
 vendor/lib/libqti-util.so
 vendor/lib64/liblearningmodule.so
 vendor/lib64/libmeters.so
 vendor/lib64/libperfconfig.so
 vendor/lib64/libperfgluelayer.so
 vendor/lib64/libperfioctl.so
+vendor/lib64/libqti-perfd-client-vendor.so
 vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libqti-perfd.so
+vendor/lib64/libqti-util-vendor.so
 vendor/lib64/libqti-util.so
-vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so
-vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so
-vendor/lib64/vendor.qti.power.pasrmanager@1.0.so
 
 # Peripheral manager
 vendor/bin/pm-proxy
@@ -712,6 +727,7 @@ vendor/lib64/vendor.qti.hardware.factory@1.1.so
 # Qualcomm MSM Interface
 etc/sysconfig/qti_whitelist.xml
 vendor/bin/irsc_util
+vendor/etc/seccomp_policy/qti-systemd.policy
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsutils.so
@@ -795,12 +811,15 @@ vendor/bin/pd-mapper
 vendor/etc/init/dataadpl.rc
 vendor/etc/init/dataqti.rc
 vendor/etc/init/init-qcril-data.rc
+vendor/etc/init/ipa_fws.rc
 vendor/etc/init/netmgrd.rc
 vendor/etc/init/qcrild.rc
 vendor/etc/init/ssgtzd.rc
 vendor/etc/init/vendor.qti.rmt_storage.rc
 vendor/etc/init/vendor.qti.tftp.rc
 vendor/etc/seccomp_policy/atfwd@2.0.policy
+vendor/etc/ssg/ta_config.json
+vendor/etc/ssg/tz_whitelist.json
 vendor/lib64/deviceInfoServiceModule.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/libdsi_netctrl.so
@@ -869,11 +888,13 @@ vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
+vendor/radio/qcril_database/upgrade/8_version_update_ecc_table.sql
 
 # Telephony (qti-telephony-common) - from repo8 - cmi-qssi-user-11-RKQ1.200710.002-V12.1.2.0.RJACNXM-release-keys
 product/framework/qti-telephony-common.jar:system_ext/framework/qti-telephony-common.jar|78f600ef38a46e592684ba30c615b1aea7dcc9a4
 
 # RIL - IMS
+system_ext/lib64/lib-imsvideocodec.so
 system_ext/lib64/lib-imsvt.so
 system_ext/lib64/lib-imsvtextutils.so
 system_ext/lib64/lib-imsvtutils.so
@@ -967,9 +988,23 @@ vendor/lib64/vendor.lge.hardware.vss_ims@1.0.so
 vendor/lib64/libvssims-impl.so
 vendor/lib64/hw/vendor.lge.hardware.vss_ims@1.0-impl.so
 
+# Res Control
+vendor/bin/hw/vendor.lge.hardware.powerhint.rescontrol@2.0-service
+vendor/etc/init/vendor.lge.hardware.powerhint.rescontrol@2.0-service.rc
+vendor/lib/libvendor_rescontrol.so
+vendor/lib/vendor.lge.hardware.powerhint.rescontrol@2.0-common.so
+vendor/lib/vendor.lge.hardware.powerhint.rescontrol@2.0.so
+vendor/lib64/libvendor_rescontrol.so
+vendor/lib64/vendor.lge.hardware.powerhint.rescontrol@2.0-common.so
+vendor/lib64/vendor.lge.hardware.powerhint.rescontrol@2.0.so
+
 # Seccam
+system_ext/lib64/libQTEEConnector_system.so
+system_ext/lib64/libseccam-ipc.so
 system_ext/lib64/libseccam.so
 system_ext/lib64/vendor.qti.hardware.seccam@1.0.so
+system_ext/lib/libQTEEConnector_system.so
+system_ext/lib/libseccam-ipc.so
 system_ext/lib/libseccam.so
 system_ext/lib/vendor.qti.hardware.seccam@1.0.so
 -system_ext/priv-app/seccamservice/seccamservice.apk
@@ -990,6 +1025,7 @@ vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml
 vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 vendor/lib/libsensorcal.so
 vendor/lib/libsensorslog.so
+vendor/lib/libsns_fastRPC_util.so
 vendor/lib/libsnsdiaglog.so
 vendor/lib/libssc.so
 vendor/lib/libssc_default_listener.so
@@ -997,22 +1033,11 @@ vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 vendor/lib64/libsensorcal.so
 vendor/lib64/libsensorslog.so
+vendor/lib64/libsns_fastRPC_util.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libssc.so
 vendor/lib64/libssc_default_listener.so
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
-
-# Sigma - Miracast
-system_ext/bin/sigma_miracasthalservice
-system_ext/etc/init/com.qualcomm.qti.sigma_miracast@1.0-service.rc
-system_ext/lib64/hw/vendor.qti.hardware.sigma_miracast@1.0-impl.so
-system_ext/lib64/libmiracastsystem.so
-system_ext/lib64/libsigmautils.so
-system_ext/lib64/vendor.qti.hardware.sigma_miracast@1.0.so
-system_ext/lib64/vendor.qti.hardware.sigma_miracast@1.0-halimpl.so
-vendor/bin/sigma_dut
-vendor/lib64/vendor.qti.hardware.sigma_miracast@1.0.so
-vendor/lib64/libmiracast.so
 
 # Snapdragon Computer Vision Engine
 vendor/lib/libfastcvdsp_stub.so
@@ -1056,6 +1081,12 @@ vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
 # Trusted User Interface
 vendor/lib64/libsi.so
 vendor/lib64/libtrustedapploader.so
+
+# TUI Comm
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
+vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
+vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
+vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 # VPP
 vendor/bin/vppservice
