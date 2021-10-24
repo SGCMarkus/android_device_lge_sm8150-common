@@ -132,9 +132,9 @@ PRODUCT_COPY_FILES += \
 
 # Boot control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl:64 \
-    android.hardware.boot@1.0-service \
-    android.hardware.boot@1.0-impl.recovery \
+    android.hardware.boot@1.1-impl-qti:64 \
+    android.hardware.boot@1.1-service \
+    android.hardware.boot@1.1-impl-qti.recovery \
     bootctrl.msmnile \
     bootctrl.msmnile.recovery
 
