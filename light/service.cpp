@@ -32,8 +32,16 @@ using android::sp;
 using android::status_t;
 
 int main() {
+    bool hasBacklight = true;
     bool hasBlinkPattern = true;
     bool hasOnOffPattern = true;
+
+    std::ofstream backlight(BL BRIGHTNESS);
+    if (!backlight) {
+        int error = errno;
+        ALOGE("Failed to open %s (%d): %s", BL BRIGHTNESS, error, strerror(error));
+        return -error;
+    }
 
     std::ofstream emotionalBlinkPattern(LED BLINK_PATTERN);
     if (!emotionalBlinkPattern) {
@@ -51,7 +59,7 @@ int main() {
         hasOnOffPattern = false;
     }
 
-    android::sp<ILight> service = new Light(hasBlinkPattern, hasOnOffPattern);
+    android::sp<ILight> service = new Light(hasBacklight, hasBlinkPattern, hasOnOffPattern);
 
     configureRpcThreadpool(1, true);
 

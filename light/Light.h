@@ -23,6 +23,15 @@
 #include <mutex>
 #include <fstream>
 
+#define BL              "/sys/class/backlight/panel0-backlight/"
+
+#define BL_EX           "/sys/class/backlight/panel0-backlight-ex/"
+
+#define LP_MODE         "/sys/devices/virtual/panel/factory/low_power_mode"
+
+#define BRIGHTNESS      "brightness"
+#define MAX_BRIGHTNESS  "max_brightness"
+
 #define LED             "/sys/class/lg_rgb_led/use_patterns/"
 
 #define BLINK_PATTERN   "blink_patterns"
@@ -44,7 +53,7 @@ using ::android::hardware::light::V2_0::Type;
 
 class Light : public ILight {
    public:
-    Light(bool hasBlinkPattern, bool hasOnOffPattern);
+    Light(bool hasBacklight, bool hasBlinkPattern, bool hasOnOffPattern);
 
     Return<Status> setLight(Type type, const LightState& state) override;
     Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
@@ -53,6 +62,7 @@ class Light : public ILight {
     void setLightLocked(const LightState& state);
     void checkLightStateLocked();
     void handleAttention(const LightState& state);
+    void handleBacklight(const LightState& state);
     void handleBattery(const LightState& state);
     void handleNotifications(const LightState& state);
 
@@ -63,6 +73,9 @@ class Light : public ILight {
     LightState mNotificationState;
 
     std::map<Type, std::function<void(const LightState&)>> mLights;
+
+    int mMaxBrightness = 255;
+    int mMaxBrightnessEx = 255;
 };
 
 }  // namespace implementation
