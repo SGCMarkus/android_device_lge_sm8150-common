@@ -239,6 +239,8 @@ on boot
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
 
+    start zramswapon
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
@@ -946,3 +948,22 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     onrestart restart audioserver
+
+#
+# initialize and configure zram/swap including some tweaks related.
+#
+service zramswapon /vendor/bin/init.lge.zramswap.sh start
+	user root
+	group system
+	disabled
+	oneshot
+
+#
+# deinit the zram/swap
+#
+service zramswapoff /vendor/bin/init.lge.zramswap.sh stop
+	user root
+	group system
+	disabled
+	oneshot
+
